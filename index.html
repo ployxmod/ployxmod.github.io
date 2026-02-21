@@ -1,102 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>GTA 5 Mobile - playXmod</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --neon-green: #00ffa3;
+      --bg-black: #0f0f0f;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* شريط التنقل العلوي */
+    .navbar {
+      width: 100%;
+      background: #000;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .back-home {
+      background: #333;
+      color: white;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* صورة الهيدر */
+    .hero-banner {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+    }
+
+    /* حاوية الأيقونة مع الإطار المضيء */
+    .icon-wrapper {
+      margin-top: -55px;
+      position: relative;
+      z-index: 10;
+      width: 110px;
+      height: 110px;
+      border-radius: 22px;
+      border: 3px solid var(--neon-green);
+      background-color: #000;
+      box-shadow: 0 0 20px rgba(0, 255, 163, 0.5);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-app-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 20px 0 5px;
+      font-weight: 700;
+    }
+
+    .device-support {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    /* أزرار التحميل */
+    .buttons-container {
+      width: 90%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .dl-button {
+      background-color: var(--neon-green);
+      color: black;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      font-size: 11px;
+      color: #444;
+      padding-bottom: 20px;
+    }
+  </style>
+ </head>
+ <body>
+
+  <div class="navbar">
+    <a href="/" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <i class="fas fa-bars" style="font-size: 20px;"></i>
+  </div>
+
+  <img src="https://i.ibb.co/FzQ7s9s/gta5.jpg" alt="GTA 5 Banner" class="hero-banner">
+
+  <div class="icon-wrapper">
+    <img src="https://i.ibb.co/6R8mS9v/gta-v-logo-icon.png" alt="GTA Icon" class="game-app-icon">
+  </div>
+
+  <h1>GTA 5 Mobile</h1>
+  <p class="device-support">For Android and iOS</p>
+
+  <div class="buttons-container">
+    <button class="dl-button" onclick="launchLocker()">
+      <i class="fab fa-android"></i> Download for Android
+    </button>
+
+    <button class="dl-button" onclick="launchLocker()">
+      <i class="fab fa-apple"></i> Download for iOS
+    </button>
+  </div>
+
+  <footer>
+    playXmod site - All Rights Reserved 2026 ©
+  </footer>
+
   <script type="text/javascript">
-    var jcLfV_CgD_kifLfc={"it":4322876,"key":"2c397"};
-</script>
-<script src="https://duw03nk63ml3f.cloudfront.net/f6afaf6.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GTA 5 Mobile</title>
+      var jcLfV_CgD_kifLfc={"it":4322876,"key":"2c397"};
+  </script>
+  <script src="https://duw03nk63ml3f.cloudfront.net/f6afaf6.js"></script>
 
-<style>
+  <script>
+    // وظيفة لتشغيل القفل عند الضغط
+    function launchLocker() {
+        if (typeof call_locker === "function") {
+            call_locker();
+        } else {
+            // تنبيه بسيط في حال لم يتم تحميل السكربت الخارجي بعد
+            console.log("Locker script is still loading...");
+            // يمكنك محاولة استدعاء الوظيفة الافتراضية للشركة إذا كان لها اسم مختلف
+            alert("Loading offers... please wait a second.");
+        }
+    }
+  </script>
 
-body{
-  margin:0;
-  background:#0e0e0e;
-  font-family:Arial, sans-serif;
-  color:#fff;
-  text-align:center;
-}
-
-/* صورة الهيدر */
-.hero{
-  width:100%;
-  overflow:hidden;
-}
-
-.hero img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  display:block;
-}
-
-/* المحتوى */
-.container{
-  padding:20px;
-}
-
-.game-icon{
-  width:120px;
-  border-radius:22px;
-  border:3px solid #00ffd0;
-  margin-top:-70px;
-  background:#000;
-}
-
-h1{
-  margin-top:15px;
-  font-size:28px;
-}
-
-.sub{
-  color:#aaa;
-  margin-bottom:30px;
-}
-
-/* أزرار التحميل */
-.btn{
-  display:block;
-  width:90%;
-  max-width:360px;
-  margin:14px auto;
-  padding:18px;
-  border-radius:50px;
-  background:#12d6a5;
-  color:#000;
-  font-size:20px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:scale(1.04);
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- صورة الهيدر الجديدة -->
-<div class="hero">
-<img src="https://img.gta5-mods.com/q95/images/british-army-reserve-intro-music/8296cc-Grand-Theft-Auto-V-GTA-5-games-hit2k.jpg" alt="GTA Header">
-</div>
-
-<div class="container">
-
-<img class="game-icon"
-src="https://i.ibb.co/FzQ7s9s/gta5.jpg">
-
-<h1>GTA 5 Mobile</h1>
-<div class="sub">For Android and iOS</div>
-
-<a class="btn" href="#">📱 Download for Android</a>
-<a class="btn" href="#">🍎 Download for iOS</a>
-
-</div>
-
-</body>
+ </body>
 </html>
