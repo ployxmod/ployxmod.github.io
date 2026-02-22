@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,10 +9,7 @@
 
   gtag('config', 'G-WQ0798RDQ2');
 </script>
-  <!-- Statcounter code for Lolooo
-https://sites.google.com/view/homilo/home on Google Sites
-(new) -->
-<script type="text/javascript">
+  <script type="text/javascript">
 var sc_project=13206088; 
 var sc_invisible=1; 
 var sc_security="cb6f73f3"; 
@@ -27,7 +23,6 @@ class="statcounter"
 src="https://c.statcounter.com/13206088/0/cb6f73f3/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>كتاب الطبخ - للعمالة المنزلية</title>
@@ -94,6 +89,18 @@ padding:20px;
 border-radius:25px;
 box-shadow:0 15px 35px rgba(0,0,0,.1);
 }
+
+/* عداد الزوار والنسخ */
+.stock-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.online-count { color: #2a9d8f; }
+.stock-count { color: #e63946; }
+
 .new-price{
 color:var(--primary);
 font-size:2rem;
@@ -120,9 +127,11 @@ cursor:pointer;
 50%{transform:scale(1.03)}
 100%{transform:scale(1)}
 }
+
+/* الإشعار في الأعلى */
 #sale-notify{
 position:fixed;
-bottom:20px;
+top:20px; /* تم التغيير للأعلى */
 right:20px;
 left:20px;
 background:rgba(255,255,255,.98);
@@ -134,10 +143,10 @@ display:none;
 border-right:5px solid var(--free);
 z-index:999;
 font-weight:bold;
+text-align: center;
 }
 </style>
 
-<!-- كود Content Locker (كما في AdBlueMedia) -->
 <script type="text/javascript">
 var QMPYl_LFI_ZxMvkc={"it":4591300,"key":"b4b85"};
 </script>
@@ -165,12 +174,10 @@ var QMPYl_LFI_ZxMvkc={"it":4591300,"key":"b4b85"};
 </section>
 
 <div class="cta-section">
-<span class="new-price">  </span>
-
-<!-- الأزرار التي تفتح القفل -->
-
-
-</button>
+<div class="stock-info">
+    <span class="online-count">🟢 متواجد الآن: <span id="user-count">54</span></span>
+    <span class="stock-count">⚠️ متبقي: 12 نسخة فقط</span>
+</div>
 
 <button onclick="_iD();" class="btn btn-free">
 تحميل الكتاب 📚
@@ -188,6 +195,7 @@ var QMPYl_LFI_ZxMvkc={"it":4591300,"key":"b4b85"};
 </div>
 
 <script>
+// إعداد الأسماء والإشعارات
 const femaleNames=["أم نورة","سارة الهاشم","هيا الجلعود","أم ريما","نورة العتيبي","شوق محمد"];
 const notify=document.getElementById('sale-notify');
 
@@ -199,6 +207,21 @@ setTimeout(()=>{notify.style.display='none';},4000);
 }
 setInterval(showNotification,12000);
 setTimeout(showNotification,3000);
+
+// عداد الأشخاص المتواجدين (يتغير باستمرار)
+function updateUsers() {
+    const userCountElement = document.getElementById('user-count');
+    let currentCount = parseInt(userCountElement.innerText);
+    // تغيير الرقم بشكل عشوائي بسيط ليعطي واقعية
+    let change = Math.floor(Math.random() * 5) - 2; 
+    let newCount = currentCount + change;
+    
+    if (newCount < 40) newCount = 42;
+    if (newCount > 65) newCount = 61;
+    
+    userCountElement.innerText = newCount;
+}
+setInterval(updateUsers, 3000);
 </script>
 
 </body>
