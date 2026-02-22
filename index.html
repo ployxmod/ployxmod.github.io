@@ -1,111 +1,205 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عنوان المقال الاحترافي</title>
-    <style>
-        /* تنسيقات عامة */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 0;
-        }
+  !-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        /* حاوية المقال */
-        .article-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
+  gtag('config', 'G-WQ0798RDQ2');
+</script>
+  <!-- Statcounter code for Lolooo
+https://sites.google.com/view/homilo/home on Google Sites
+(new) -->
+<script type="text/javascript">
+var sc_project=13206088; 
+var sc_invisible=1; 
+var sc_security="cb6f73f3"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13206088/0/cb6f73f3/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كتاب الطبخ - للعمالة المنزلية</title>
 
-        /* رأس المقال */
-        header {
-            border-bottom: 2px solid #eee;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+<style>
+:root{
+--primary:#bc6c25;
+--bg:#fefae0;
+--white:#ffffff;
+--text:#283618;
+--free:#2a9d8f;
+}
+*{box-sizing:border-box}
+body{
+font-family:'Tajawal',sans-serif;
+margin:0;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
+.container{max-width:450px;margin:0 auto;padding:0 15px 50px}
+.hero{
+text-align:center;
+padding:20px 10px;
+background:#fff;
+border-bottom-left-radius:40px;
+border-bottom-right-radius:40px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+.hero img{
+width:90%;
+max-width:350px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+h1{font-size:1.4rem;margin:10px 0}
+.badge{
+background:#e63946;
+color:#fff;
+padding:4px 12px;
+border-radius:50px;
+font-size:.7rem;
+font-weight:bold;
+}
+.features{margin:20px 0}
+.feature-item{
+background:#fff;
+margin-bottom:10px;
+padding:12px;
+border-radius:12px;
+display:flex;
+align-items:center;
+font-size:.9rem;
+box-shadow:0 2px 5px rgba(0,0,0,.02);
+}
+.feature-item::before{content:"✅";margin-left:10px}
+.cta-section{
+text-align:center;
+background:#fff;
+padding:20px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+.new-price{
+color:var(--primary);
+font-size:2rem;
+font-weight:800;
+display:block;
+}
+.btn{
+display:block;
+color:#fff;
+padding:15px;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+margin-top:15px;
+border:none;
+width:100%;
+font-family:'Tajawal',sans-serif;
+cursor:pointer;
+}
+.btn-whatsapp{background:var(--primary);animation:pulse 2s infinite}
+.btn-free{background:var(--free);font-size:1rem}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.03)}
+100%{transform:scale(1)}
+}
+#sale-notify{
+position:fixed;
+bottom:20px;
+right:20px;
+left:20px;
+background:rgba(255,255,255,.98);
+padding:12px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+font-size:.85rem;
+display:none;
+border-right:5px solid var(--free);
+z-index:999;
+font-weight:bold;
+}
+</style>
 
-        .meta-info {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
+<!-- كود Content Locker (كما في AdBlueMedia) -->
+<script type="text/javascript">
+var QMPYl_LFI_ZxMvkc={"it":4591300,"key":"b4b85"};
+</script>
+<script src="https://duw03nk63ml3f.cloudfront.net/0d02e4f.js"></script>
 
-        /* محتوى المقال */
-        .content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        h2 {
-            color: #e67e22;
-            margin-top: 30px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        /* تذييل المقال */
-        footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-style: italic;
-            color: #555;
-        }
-
-        /* متوافق مع الجوال */
-        @media (max-width: 600px) {
-            .article-container {
-                margin: 10px;
-                padding: 20px;
-            }
-            h1 { font-size: 1.8rem; }
-        }
-    </style>
 </head>
+
 <body>
 
-    <article class="article-container">
-        <header>
-            <h1>كيف تبدأ في تعلم البرمجة من الصفر؟</h1>
-            <div class="meta-info">
-                <span>بقلم: ذكاء اصطناعي</span> | <span>التاريخ: 22 فبراير 2026</span>
-            </div>
-        </header>
+<div id="sale-notify">قامت "أم سارة" بتحميل العينة المجانية الآن ✅</div>
 
-        <section class="content">
-            <p>تعتبر البرمجة لغة العصر الحديث، وهي المهارة التي تفتح لك أبواباً لا حصر لها في سوق العمل. سواء كنت ترغب في بناء تطبيقات الهواتف أو تطوير مواقع الويب، فإن الرحلة تبدأ بخطوة واحدة.</p>
+<div class="container">
 
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="صورة توضيحية للبرمجة">
+<header class="hero">
+<span class="badge">الأكثر طلباً هذا الشهر 🔥</span>
+<img src="https://ugc.zenchef.com/3/7/5/3/1/4/1/5/6/1/0/0/9/1747901925_120/b69214f9a7b49a76ccd7031f8447353d.clandscape_hd.jpg">
+<h1>كتاب MBA لتعليم الطبخ</h1>
+<p style="font-size:.9rem;color:#555;">دليل العمالة المنزلية الشامل بجميع اللغات</p>
+</header>
 
-            <h2>1. اختيار اللغة المناسبة</h2>
-            <p>لا تحاول تعلم كل شيء دفعة واحدة. ابدأ بلغة سهلة مثل <strong>Python</strong> إذا كنت مهتماً بعلوم البيانات، أو <strong>JavaScript</strong> إذا كان شغفك هو تطوير المواقع التفاعلية.</p>
+<section class="features">
+<div class="feature-item">مترجم (فلبيني، هندي، إثيوبي، سريلانكي)</div>
+<div class="feature-item">صور توضيحية لكل خطوة.</div>
+<div class="feature-item">أشهر الأطباق الخليجية والعالمية.</div>
+</section>
 
-            <h2>2. الممارسة المستمرة</h2>
-            <p>الكود ليس مجرد القراءة؛ بل هو الكتابة والخطأ ثم التصحيح. حاول بناء مشاريع صغيرة مثل "حاسبة" أو "قائمة مهام" لترسيخ المفاهيم التي تعلمتها.</p>
-        </section>
+<div class="cta-section">
+<span class="new-price">167 ريال فقط</span>
 
-        <footer>
-            تمت كتابة هذا المقال لغرض العرض التقني. جميع الحقوق محفوظة © 2026.
-        </footer>
-    </article>
+<!-- الأزرار التي تفتح القفل -->
+<button onclick="_iD();" class="btn btn-whatsapp">
+اطلبي النسخة الكاملة الآن 📥
+</button>
+
+<button onclick="_iD();" class="btn btn-free">
+تحميل عينة مجانية (PDF) 📄
+</button>
+
+<p style="font-size:.7rem;color:#666;margin-top:15px;">
+أكملي التحقق السريع لفتح رابط التحميل فوراً.
+</p>
+</div>
+
+<footer style="text-align:center;margin-top:30px;font-size:.7rem;opacity:.5;">
+© 2026 جميع الحقوق محفوظة لـ MBA Cooking
+</footer>
+
+</div>
+
+<script>
+const femaleNames=["أم نورة","سارة الهاشم","هيا الجلعود","أم ريما","نورة العتيبي","شوق محمد"];
+const notify=document.getElementById('sale-notify');
+
+function showNotification(){
+const name=femaleNames[Math.floor(Math.random()*femaleNames.length)];
+notify.innerHTML=`قامت <span style="color:#2a9d8f">"${name}"</span> بتحميل العينة المجانية الآن ✅`;
+notify.style.display='block';
+setTimeout(()=>{notify.style.display='none';},4000);
+}
+setInterval(showNotification,12000);
+setTimeout(showNotification,3000);
+</script>
 
 </body>
 </html>
