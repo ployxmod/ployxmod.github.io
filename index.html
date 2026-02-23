@@ -18,30 +18,24 @@ var sc_security="cb6f73f3";
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>💎  💎</title>
+<title>💎 شحن الجواهر المباشر 💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root { --primary:#ffcc00; --secondary:#006400; --dark:#0f172a; --success:#22c55e; }
+:root { --primary:#ffcc00; --dark:#0f172a; --success:#22c55e; }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 
 body {
     background: radial-gradient(circle at center, #1e293b 0%, #080c14 100%);
     color: #fff; font-family: 'Cairo', sans-serif; margin: 0;
-    display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden;
-}
-
-.top-bar {
-    position: fixed; top: 0; width: 100%; background: var(--secondary);
-    color: #fff; text-align: center; padding: 12px; font-weight: 900;
-    z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-size: 14px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden;
 }
 
 .main-container {
     width: 92%; max-width: 420px; background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(12px); border-radius: 24px; padding: 30px 20px;
+    backdrop-filter: blur(12px); border-radius: 24px; padding: 35px 20px;
     border: 1px solid rgba(255, 204, 0, 0.2); text-align: center;
-    margin: 80px auto 20px auto; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
 h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 20px; }
@@ -57,6 +51,15 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
 }
 
 .error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; }
+
+/* أيقونات الأنظمة */
+.platform-grid { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.platform-item {
+    background: #1e293b; padding: 15px; border-radius: 15px; border: 2px solid #334155;
+    cursor: pointer; transition: 0.3s; flex: 1; opacity: 0.6;
+}
+.platform-item.selected { border-color: var(--primary); opacity: 1; background: rgba(255, 204, 0, 0.1); }
+.platform-item svg { width: 30px; height: 30px; fill: #fff; }
 
 .gems-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
 .gem-item {
@@ -74,44 +77,40 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
 
 .console { background: #000; color: #22c55e; font-family: monospace; padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; direction: ltr; width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
 
-.reviews-section { width: 92%; max-width: 420px; margin-top: 20px; margin-bottom: 40px; }
-.review-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; margin-bottom: 12px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.05); animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-@keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-.review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
-.review-info { flex: 1; text-align: right; }
-.review-name { font-weight: bold; font-size: 14px; color: var(--primary); }
-.review-content { font-size: 13px; color: #cbd5e1; margin-top: 4px; line-height: 1.4; }
-.review-time { font-size: 10px; color: #64748b; margin-right: 5px; }
-
-.add-comment { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 18px; margin-top: 15px; border: 1px dashed var(--primary); }
-.comment-input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; color: #fff; font-family: inherit; margin-bottom: 10px; resize: none; outline: none; }
-.btn-comment { background: var(--primary); color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; }
-
-.live-notify { position: fixed; bottom: 15px; background: #fff; color: #333; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; transition: 0.5s; transform: translateY(200%); font-size: 13px; font-weight: bold; }
-.live-notify.show { transform: translateY(0); }
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">🔐 نظام تشفير آمن | متصل بالسيرفر الرسمي</div>
-
 <div class="main-container">
     <div id="step1" class="step-card active">
         <h2>شحن الجواهر المباشر</h2>
+        
         <input type="text" id="id-player" class="input-box" placeholder="أدخل معرف اللاعب (ID)" inputmode="numeric">
-        <div id="id-error" class="error-msg">⚠️ خطأ: يرجى كتابة الـ ID بشكل صحيح</div>
+        <div id="id-error" class="error-msg">⚠️ خطأ: يرجى إدخال ID صحيح (8-10 أرقام)</div>
+
+        <div class="platform-grid">
+            <div class="platform-item selected" onclick="selectPlatform(this)">
+                <svg viewBox="0 0 24 24"><path d="M17.523 15.3414C17.0652 15.3414 16.6904 14.9666 16.6904 14.5088C16.6904 14.0511 17.0652 13.6763 17.523 13.6763C17.9807 13.6763 18.3555 14.0511 18.3555 14.5088C18.3555 14.9666 17.9807 15.3414 17.523 15.3414ZM6.47696 15.3414C6.01923 15.3414 5.64444 14.9666 5.64444 14.5088C5.64444 14.0511 6.01923 13.6763 6.47696 13.6763C6.93469 13.6763 7.30948 14.0511 7.30948 14.5088C7.30948 14.9666 6.93469 15.3414 6.47696 15.3414ZM17.9016 10.3957L19.5393 7.55904C19.6823 7.31135 19.5976 6.9953 19.3501 6.8523C19.1026 6.7095 18.7865 6.79421 18.6437 7.0417L16.9744 9.93321C15.5458 9.27891 13.8569 8.91316 12 8.91316C10.1431 8.91316 8.4542 9.27891 7.0256 9.93321L5.3563 7.0417C5.2135 6.79421 4.8974 6.7093 4.6499 6.8523C4.40241 6.9953 4.3177 7.31135 4.4607 7.55904L6.09841 10.3957C3.1207 12.0195 1.09541 15.0232 1.01321 18.5756H22.9868C22.9046 15.0232 20.8791 12.0195 17.9016 10.3957Z"/></svg>
+            </div>
+            <div class="platform-item" onclick="selectPlatform(this)">
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.89 1.22-2.11 1.09-3.32-1.04.04-2.3.7-3.05 1.58-.67.79-1.26 2.05-1.1 3.21 1.15.09 2.31-.58 3.06-1.47Z"/></svg>
+            </div>
+            <div class="platform-item" onclick="selectPlatform(this)">
+                <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+            </div>
+        </div>
+
         <button class="btn-main" onclick="validateID()">تحقق الآن</button>
     </div>
 
     <div id="step2" class="step-card">
         <h2>كمية الجواهر المطلوبة</h2>
         <div class="gems-grid">
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,500</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,600</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>10,000</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>15,000</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>1,500</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,600</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>3,100</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,000</b></div>
         </div>
         <div id="gem-error" class="error-msg" style="margin-top:10px">⚠️ يجب اختيار كمية الجواهر أولاً!</div>
         <button class="btn-main" style="margin-top:15px" onclick="validateGemSelection()">بدء الشحن</button>
@@ -127,46 +126,31 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
     </div>
 </div>
 
-<div class="reviews-section">
-    <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--primary);">آراء المستخدمين المباشرة (متصل الآن)</h3>
-    <div id="commentsContainer"></div>
-    <div class="add-comment">
-        <textarea class="comment-input" id="userComment" rows="2" placeholder="اكتب تجربتك هنا..."></textarea>
-        <button class="btn-comment" onclick="postComment()">نشر التعليق</button>
-    </div>
-</div>
-
-<div class="live-notify" id="notify"><span id="notify-content"></span></div>
-
 <script>
 let selG=null; let userID = "";
 
-const autoNames = ["محمد الشمري", "ياسين المغربي", "فهد الدوسري", "سارة علي", "أمين الجزائري", "خالد الكويتي", "عمر المصري", "نواف العتيبي", "ريان الأردني", "صالح اليمني"];
-const autoTexts = [
-    "والله العظيم شحنت 10000 جوهرة ووصلتني فوراً! شكراً لكم.",
-    "أفضل موقع شحن جربته في حياتي، أنصح الجميع به.",
-    "كنت شاكك في البداية بس لما خلصت التحقق الجواهر وصلت الحساب.",
-    "جربت مواقع كثير بس هذا الوحيد اللي اشتغل معي.",
-    "تم شحن 5600 جوهرة بنجاح، جزاكم الله خير.",
-    "وصلتني الجواهر، الطريقة سهلة جداً ما تاخد وقت.",
-    "شكراً على المصداقية، أخيراً لقيت موقع حقيقي.",
-    "شباب الطريقة شغالة 100% لا تفوتكم.",
-    "الحمد لله وصلتني شحنة الـ 15 ألف جوهرة.",
-    "الموقع سريع جداً والجواهر وصلت في أقل من دقيقة."
-];
+function selectPlatform(x) {
+    document.querySelectorAll('.platform-item').forEach(p => p.classList.remove('selected'));
+    x.classList.add('selected');
+}
 
-function selectGem(x){ if(selG) selG.classList.remove('selected'); x.classList.add('selected'); selG=x; document.getElementById('gem-error').style.display='none';}
+function selectGem(x){ 
+    if(selG) selG.classList.remove('selected'); 
+    x.classList.add('selected'); 
+    selG=x; 
+    document.getElementById('gem-error').style.display='none';
+}
 
-// العودة للنظام القديم للتحقق من ID
 function validateID(){
     const val=document.getElementById('id-player').value;
     const err=document.getElementById('id-error');
-    if(/^\d+$/.test(val) && val.length>=5){
+    // التحقق أن المدخل أرقام فقط وطوله بين 8 و 10
+    if(/^\d{8,10}$/.test(val)){
         err.style.display='none';
         userID = val;
         next(2);
     } else {
-        err.style.display='block'; // إظهار رسالة الخطأ الحمراء
+        err.style.display='block';
     }
 }
 
@@ -196,54 +180,11 @@ function startProcess(){
     }, 1200);
 }
 
-function addCommentToList(name, text, isNew = false) {
-    const container = document.getElementById('commentsContainer');
-    const seed = Math.floor(Math.random() * 5000);
-    const timeText = isNew ? "الآن" : "منذ قليل";
-    const div = document.createElement('div');
-    div.className = 'review-card';
-    div.innerHTML = `
-        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}" class="review-avatar">
-        <div class="review-info">
-            <span class="review-name">${name}</span><span class="review-time">${timeText}</span>
-            <div class="review-content">${text}</div>
-        </div>
-    `;
-    container.prepend(div);
-    if(container.children.length > 6) container.lastChild.remove();
-}
-
-function postComment(){
-    const text = document.getElementById('userComment').value;
-    if(text.length > 3){
-        addCommentToList("أنت (لاعب جديد)", text, true);
-        document.getElementById('userComment').value = "";
-    }
-}
-
-function startAutoComments() {
-    addCommentToList(autoNames[0], autoTexts[0]);
-    addCommentToList(autoNames[1], autoTexts[1]);
-    setInterval(() => {
-        const randIdx = Math.floor(Math.random() * autoNames.length);
-        addCommentToList(autoNames[randIdx], autoTexts[randIdx], true);
-    }, 15000);
-}
-
 function callMyLocker(){
     if(typeof _Vm==='function'){ _Vm(); }
     else if(typeof _cp==='function'){ _cp(); } 
     else{ alert("أكمل التحقق الأخير لتصلك الجواهر."); }
 }
-
-window.onload = startAutoComments;
-
-setInterval(()=>{
-    const names=["فهد","أحمد","نواف","عبدالله","ريم"];
-    document.getElementById('notify-content').innerHTML=`✅ استلم <b>${names[Math.floor(Math.random()*names.length)]}</b> الآن 15,000 جوهرة!`;
-    document.getElementById('notify').classList.add('show');
-    setTimeout(()=>document.getElementById('notify').classList.remove('show'),3000);
-}, 12000);
 </script>
 
 <script type="text/javascript">
