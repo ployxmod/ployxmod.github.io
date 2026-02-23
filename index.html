@@ -1,205 +1,255 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WQ0798RDQ2');
-</script>
-  <!-- Statcounter code for Lolooo
-https://sites.google.com/view/homilo/home on Google Sites
-(new) -->
 <script type="text/javascript">
 var sc_project=13206088; 
 var sc_invisible=1; 
 var sc_security="cb6f73f3"; 
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="https://c.statcounter.com/13206088/0/cb6f73f3/1/"
-alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كتاب الطبخ - للعمالة المنزلية</title>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WQ0798RDQ2');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>💎  💎</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
---primary:#bc6c25;
---bg:#fefae0;
---white:#ffffff;
---text:#283618;
---free:#2a9d8f;
+:root { --primary:#ffcc00; --secondary:#006400; --dark:#0f172a; --success:#22c55e; }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+body {
+    background: radial-gradient(circle at center, #1e293b 0%, #080c14 100%);
+    color: #fff; font-family: 'Cairo', sans-serif; margin: 0;
+    display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden;
 }
-*{box-sizing:border-box}
-body{
-font-family:'Tajawal',sans-serif;
-margin:0;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
+
+.top-bar {
+    position: fixed; top: 0; width: 100%; background: var(--secondary);
+    color: #fff; text-align: center; padding: 12px; font-weight: 900;
+    z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-size: 14px;
 }
-.container{max-width:450px;margin:0 auto;padding:0 15px 50px}
-.hero{
-text-align:center;
-padding:20px 10px;
-background:#fff;
-border-bottom-left-radius:40px;
-border-bottom-right-radius:40px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+.main-container {
+    width: 92%; max-width: 420px; background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px); border-radius: 24px; padding: 30px 20px;
+    border: 1px solid rgba(255, 204, 0, 0.2); text-align: center;
+    margin: 80px auto 20px auto; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
-.hero img{
-width:90%;
-max-width:350px;
-border-radius:15px;
-margin-bottom:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+h2 { color: var(--primary); font-weight: 900; font-size: 1.5rem; margin-bottom: 20px; }
+
+.step-card { display: none; flex-direction: column; align-items: center; width: 100%; }
+.step-card.active { display: flex; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+
+.input-box {
+    width: 100%; padding: 18px; border-radius: 15px; border: 2px solid #334155;
+    background: #0f172a; color: #fff; font-size: 20px; margin-bottom: 5px;
+    text-align: center; outline: none; transition: 0.3s;
 }
-h1{font-size:1.4rem;margin:10px 0}
-.badge{
-background:#e63946;
-color:#fff;
-padding:4px 12px;
-border-radius:50px;
-font-size:.7rem;
-font-weight:bold;
+
+.error-msg { color: #ff4b2b; font-size: 13px; margin-bottom: 15px; display: none; font-weight: bold; }
+
+.gems-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+.gem-item {
+    background: #1e293b; padding: 18px 10px; border-radius: 18px;
+    border: 2px solid #334155; cursor: pointer; transition: 0.3s;
 }
-.features{margin:20px 0}
-.feature-item{
-background:#fff;
-margin-bottom:10px;
-padding:12px;
-border-radius:12px;
-display:flex;
-align-items:center;
-font-size:.9rem;
-box-shadow:0 2px 5px rgba(0,0,0,.02);
+.gem-item.selected { border-color: var(--primary); background: rgba(255, 204, 0, 0.1); transform: translateY(-3px); }
+
+.btn-main {
+    background: linear-gradient(135deg, #ffea00 0%, #ffcc00 100%);
+    color: #000; border: none; padding: 18px; width: 100%;
+    border-radius: 15px; font-weight: 900; font-size: 18px;
+    cursor: pointer; box-shadow: 0 5px 0 #b79500;
 }
-.feature-item::before{content:"✅";margin-left:10px}
-.cta-section{
-text-align:center;
-background:#fff;
-padding:20px;
-border-radius:25px;
-box-shadow:0 15px 35px rgba(0,0,0,.1);
-}
-.new-price{
-color:var(--primary);
-font-size:2rem;
-font-weight:800;
-display:block;
-}
-.btn{
-display:block;
-color:#fff;
-padding:15px;
-border-radius:50px;
-font-size:1.1rem;
-font-weight:bold;
-margin-top:15px;
-border:none;
-width:100%;
-font-family:'Tajawal',sans-serif;
-cursor:pointer;
-}
-.btn-whatsapp{background:var(--primary);animation:pulse 2s infinite}
-.btn-free{background:var(--free);font-size:1rem}
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.03)}
-100%{transform:scale(1)}
-}
-#sale-notify{
-position:fixed;
-bottom:20px;
-right:20px;
-left:20px;
-background:rgba(255,255,255,.98);
-padding:12px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
-font-size:.85rem;
-display:none;
-border-right:5px solid var(--free);
-z-index:999;
-font-weight:bold;
-}
+
+.console { background: #000; color: #22c55e; font-family: monospace; padding: 12px; border-radius: 12px; font-size: 12px; text-align: left; direction: ltr; width: 100%; height: 100px; overflow: hidden; margin-top: 15px; }
+
+.reviews-section { width: 92%; max-width: 420px; margin-top: 20px; margin-bottom: 40px; }
+.review-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; margin-bottom: 12px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.05); animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+.review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+.review-info { flex: 1; text-align: right; }
+.review-name { font-weight: bold; font-size: 14px; color: var(--primary); }
+.review-content { font-size: 13px; color: #cbd5e1; margin-top: 4px; line-height: 1.4; }
+.review-time { font-size: 10px; color: #64748b; margin-right: 5px; }
+
+.add-comment { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 18px; margin-top: 15px; border: 1px dashed var(--primary); }
+.comment-input { width: 100%; background: #0f172a; border: 1px solid #334155; border-radius: 10px; padding: 10px; color: #fff; font-family: inherit; margin-bottom: 10px; resize: none; outline: none; }
+.btn-comment { background: var(--primary); color: #000; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; }
+
+.live-notify { position: fixed; bottom: 15px; background: #fff; color: #333; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; transition: 0.5s; transform: translateY(200%); font-size: 13px; font-weight: bold; }
+.live-notify.show { transform: translateY(0); }
 </style>
-
-<!-- كود Content Locker (كما في AdBlueMedia) -->
-<script type="text/javascript">
-var QMPYl_LFI_ZxMvkc={"it":4591300,"key":"b4b85"};
-</script>
-<script src="https://duw03nk63ml3f.cloudfront.net/0d02e4f.js"></script>
-
 </head>
 
 <body>
 
-<div id="sale-notify">قامت "أم سارة" بتحميل العينة المجانية الآن ✅</div>
+<div class="top-bar">🔐 نظام تشفير آمن | متصل بالسيرفر الرسمي</div>
 
-<div class="container">
+<div class="main-container">
+    <div id="step1" class="step-card active">
+        <h2>شحن الجواهر المباشر</h2>
+        <input type="text" id="id-player" class="input-box" placeholder="أدخل معرف اللاعب (ID)" inputmode="numeric">
+        <div id="id-error" class="error-msg">⚠️ خطأ: يرجى كتابة الـ ID بشكل صحيح</div>
+        <button class="btn-main" onclick="validateID()">تحقق الآن</button>
+    </div>
 
-<header class="hero">
-<span class="badge">الأكثر تنزيل هذا الشهر 🔥</span>
-<img src="https://ugc.zenchef.com/3/7/5/3/1/4/1/5/6/1/0/0/9/1747901925_120/b69214f9a7b49a76ccd7031f8447353d.clandscape_hd.jpg">
-<h1>كتاب MBA لتعليم الطبخ</h1>
-<p style="font-size:.9rem;color:#555;">دليل العمالة المنزلية الشامل بجميع اللغات</p>
-</header>
+    <div id="step2" class="step-card">
+        <h2>كمية الجواهر المطلوبة</h2>
+        <div class="gems-grid">
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>2,500</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>5,600</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>10,000</b></div>
+            <div class="gem-item" onclick="selectGem(this)">💎<br><b>15,000</b></div>
+        </div>
+        <div id="gem-error" class="error-msg" style="margin-top:10px">⚠️ يجب اختيار كمية الجواهر أولاً!</div>
+        <button class="btn-main" style="margin-top:15px" onclick="validateGemSelection()">بدء الشحن</button>
+    </div>
 
-<section class="features">
-<div class="feature-item">مترجم (فلبيني، هندي، إثيوبي، سريلانكي)</div>
-<div class="feature-item">صور توضيحية لكل خطوة.</div>
-<div class="feature-item">أشهر الأطباق الخليجية والعالمية.</div>
-</section>
-
-<div class="cta-section">
-<span class="new-price">  </span>
-
-<!-- الأزرار التي تفتح القفل -->
-
-
-</button>
-
-<button onclick="_iD();" class="btn btn-free">
-تحميل الكتاب 📚
-</button>
-
-<p style="font-size:.7rem;color:#666;margin-top:15px;">
-أكملي التحقق السريع لفتح رابط التحميل فوراً.
-</p>
+    <div id="step3" class="step-card">
+        <h2 id="status-text">جاري المعالجة...</h2>
+        <div class="console" id="console"></div>
+        <div id="verify-box" style="display:none;margin-top:20px;width:100%;">
+            <p style="color:var(--success); font-weight:bold; font-size:14px; margin-bottom:15px;">✅ تم التحقق من المعرف: <span id="user-display" style="color:#fff"></span></p>
+            <button class="btn-main" style="background:var(--success); color:#fff;" onclick="callMyLocker()">اضغط للتحقق الأخير</button>
+        </div>
+    </div>
 </div>
 
-<footer style="text-align:center;margin-top:30px;font-size:.7rem;opacity:.5;">
-© 2026 جميع الحقوق محفوظة لـ MBA Cooking
-</footer>
-
+<div class="reviews-section">
+    <h3 style="font-size: 16px; margin-bottom: 15px; color: var(--primary);">آراء المستخدمين المباشرة (متصل الآن)</h3>
+    <div id="commentsContainer"></div>
+    <div class="add-comment">
+        <textarea class="comment-input" id="userComment" rows="2" placeholder="اكتب تجربتك هنا..."></textarea>
+        <button class="btn-comment" onclick="postComment()">نشر التعليق</button>
+    </div>
 </div>
+
+<div class="live-notify" id="notify"><span id="notify-content"></span></div>
 
 <script>
-const femaleNames=["أم نورة","سارة الهاشم","هيا الجلعود","أم ريما","نورة العتيبي","شوق محمد"];
-const notify=document.getElementById('sale-notify');
+let selG=null; let userID = "";
 
-function showNotification(){
-const name=femaleNames[Math.floor(Math.random()*femaleNames.length)];
-notify.innerHTML=`قامت <span style="color:#2a9d8f">"${name}"</span> بتحميل العينة المجانية الآن ✅`;
-notify.style.display='block';
-setTimeout(()=>{notify.style.display='none';},4000);
+const autoNames = ["محمد الشمري", "ياسين المغربي", "فهد الدوسري", "سارة علي", "أمين الجزائري", "خالد الكويتي", "عمر المصري", "نواف العتيبي", "ريان الأردني", "صالح اليمني"];
+const autoTexts = [
+    "والله العظيم شحنت 10000 جوهرة ووصلتني فوراً! شكراً لكم.",
+    "أفضل موقع شحن جربته في حياتي، أنصح الجميع به.",
+    "كنت شاكك في البداية بس لما خلصت التحقق الجواهر وصلت الحساب.",
+    "جربت مواقع كثير بس هذا الوحيد اللي اشتغل معي.",
+    "تم شحن 5600 جوهرة بنجاح، جزاكم الله خير.",
+    "وصلتني الجواهر، الطريقة سهلة جداً ما تاخد وقت.",
+    "شكراً على المصداقية، أخيراً لقيت موقع حقيقي.",
+    "شباب الطريقة شغالة 100% لا تفوتكم.",
+    "الحمد لله وصلتني شحنة الـ 15 ألف جوهرة.",
+    "الموقع سريع جداً والجواهر وصلت في أقل من دقيقة."
+];
+
+function selectGem(x){ if(selG) selG.classList.remove('selected'); x.classList.add('selected'); selG=x; document.getElementById('gem-error').style.display='none';}
+
+// العودة للنظام القديم للتحقق من ID
+function validateID(){
+    const val=document.getElementById('id-player').value;
+    const err=document.getElementById('id-error');
+    if(/^\d+$/.test(val) && val.length>=5){
+        err.style.display='none';
+        userID = val;
+        next(2);
+    } else {
+        err.style.display='block'; // إظهار رسالة الخطأ الحمراء
+    }
 }
-setInterval(showNotification,12000);
-setTimeout(showNotification,3000);
+
+function validateGemSelection(){
+    if(selG){next(3);} else {document.getElementById('gem-error').style.display='block';}
+}
+
+function next(s){
+    document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
+    document.getElementById('step'+s).classList.add('active');
+    if(s===3)startProcess();
+}
+
+function startProcess(){
+    const c = document.getElementById('console');
+    const logs = ["> Connecting...", "> User " + userID + " found.", "> Injecting Gems...", "> Verification Required!"];
+    let i = 0;
+    let t = setInterval(() => {
+        c.innerHTML += `<div>${logs[i]}</div>`;
+        i++;
+        if(i >= logs.length){
+            clearInterval(t);
+            document.getElementById('user-display').innerText = userID;
+            document.getElementById('verify-box').style.display='block';
+            document.getElementById('status-text').innerText="اكتمال العملية 99%";
+        }
+    }, 1200);
+}
+
+function addCommentToList(name, text, isNew = false) {
+    const container = document.getElementById('commentsContainer');
+    const seed = Math.floor(Math.random() * 5000);
+    const timeText = isNew ? "الآن" : "منذ قليل";
+    const div = document.createElement('div');
+    div.className = 'review-card';
+    div.innerHTML = `
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}" class="review-avatar">
+        <div class="review-info">
+            <span class="review-name">${name}</span><span class="review-time">${timeText}</span>
+            <div class="review-content">${text}</div>
+        </div>
+    `;
+    container.prepend(div);
+    if(container.children.length > 6) container.lastChild.remove();
+}
+
+function postComment(){
+    const text = document.getElementById('userComment').value;
+    if(text.length > 3){
+        addCommentToList("أنت (لاعب جديد)", text, true);
+        document.getElementById('userComment').value = "";
+    }
+}
+
+function startAutoComments() {
+    addCommentToList(autoNames[0], autoTexts[0]);
+    addCommentToList(autoNames[1], autoTexts[1]);
+    setInterval(() => {
+        const randIdx = Math.floor(Math.random() * autoNames.length);
+        addCommentToList(autoNames[randIdx], autoTexts[randIdx], true);
+    }, 15000);
+}
+
+function callMyLocker(){
+    if(typeof _Vm==='function'){ _Vm(); }
+    else if(typeof _cp==='function'){ _cp(); } 
+    else{ alert("أكمل التحقق الأخير لتصلك الجواهر."); }
+}
+
+window.onload = startAutoComments;
+
+setInterval(()=>{
+    const names=["فهد","أحمد","نواف","عبدالله","ريم"];
+    document.getElementById('notify-content').innerHTML=`✅ استلم <b>${names[Math.floor(Math.random()*names.length)]}</b> الآن 15,000 جوهرة!`;
+    document.getElementById('notify').classList.add('show');
+    setTimeout(()=>document.getElementById('notify').classList.remove('show'),3000);
+}, 12000);
 </script>
+
+<script type="text/javascript">
+var PkmPy_nVK_ynEQKc={"it":4591300,"key":"b4b85"};
+</script>
+<script src="https://duw03nk63ml3f.cloudfront.net/7098ee5.js"></script>
 
 </body>
 </html>
