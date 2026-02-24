@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <script type="text/javascript">
 var sc_project=13206088; 
@@ -18,7 +18,7 @@ var sc_security="cb6f73f3";
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>💎💎</title>
+<title>Free Fire Diamonds 💎💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -45,7 +45,7 @@ border:3px solid var(--primary);
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 text-align:center;
 }
-.game-title{font-weight:900;font-size:1.8rem;color:var(--red);margin-bottom:20px;}
+.game-title{font-weight:900;font-size:1.8rem;color:var(--red);margin-bottom:20px;letter-spacing: 2px;}
 .step-card{display:none;flex-direction:column;align-items:center;}
 .step-card.active{display:flex;}
 h2{font-size:1.3rem;margin-bottom:20px;color:var(--dark-text);}
@@ -73,7 +73,10 @@ font-size:18px;
 cursor:pointer;
 box-shadow:0 4px 0 #991b1b;
 margin-top:10px;
+transition: 0.2s;
 }
+.btn-red:active { transform: translateY(2px); box-shadow: 0 2px 0 #991b1b; }
+
 .gem-item{
 width:100%;
 background:#1e293b;
@@ -86,7 +89,9 @@ align-items:center;
 border:1px solid #334155;
 cursor:pointer;
 color:#fff;
+transition: 0.3s;
 }
+.gem-item:hover { border-color: var(--primary); transform: scale(1.02); }
 .gem-info{display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.1rem;}
 .gem-tag{background:var(--primary);color:#000;padding:4px 12px;border-radius:5px;font-size:13px;font-weight:900;}
 .console{
@@ -123,33 +128,33 @@ border:1px solid #bcf0da;
 <div class="game-title">FREE FIRE</div>
 
 <div id="step1" class="step-card active">
-<h2>تسجيل الدخول بمعرف اللاعب</h2>
-<input type="text" id="p-id" class="input-box" placeholder="معرف اللاعب (ID)" inputmode="numeric">
-<p id="err" class="error">⚠️ خطأ يرجى إدخال ID صحيح</p>
-<button class="btn-red" onclick="valID()">تسجيل الدخول</button>
+<h2>Login with Player ID</h2>
+<input type="text" id="p-id" class="input-box" placeholder="Player ID" inputmode="numeric">
+<p id="err" class="error">⚠️ Error: ID must be 9 to 12 digits</p>
+<button class="btn-red" onclick="valID()">Connect Account</button>
 </div>
 
 <div id="step2" class="step-card">
-<h2>ما هو مستواك في اللعبة؟</h2>
+<h2>What is your account level?</h2>
 <input type="text" id="p-lvl" class="input-box" placeholder="Account Level" inputmode="numeric">
-<button class="btn-red" onclick="move(3)">تأكيد المستوى</button>
+<button class="btn-red" onclick="move(3)">Confirm Level</button>
 </div>
 
 <div id="step3" class="step-card">
-<h2>اختر كمية الجواهر</h2>
-<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 100+10</div><div class="gem-tag">استلام</div></div>
-<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 210+20</div><div class="gem-tag">استلام</div></div>
-<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 530+31</div><div class="gem-tag">استلام</div></div>
-<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 1080+100</div><div class="gem-tag">استلام</div></div>
+<h2>Select Diamonds Amount</h2>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 100+10</div><div class="gem-tag">Claim</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 210+20</div><div class="gem-tag">Claim</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 530+31</div><div class="gem-tag">Claim</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 1080+100</div><div class="gem-tag">Claim</div></div>
 </div>
 
 <div id="step4" class="step-card">
-<h2 id="wait-text">جاري معالجة البيانات...</h2>
+<h2 id="wait-text">Processing data...</h2>
 <div class="console" id="log"></div>
 
 <div id="fin" style="display:none;">
-<p class="final-msg">✅ تم التحقق من الحساب: <span id="res-id" style="color:#000"></span> بنجاح. أكمل الخطوة الأخيرة  .</p>
-<button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">  التفعيل</button>
+<p class="final-msg">✅ Account: <span id="res-id" style="color:#000"></span> has been verified. Complete the last step to receive your diamonds.</p>
+<button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">Verify Now</button>
 </div>
 </div>
 </div>
@@ -159,7 +164,6 @@ let playerID="";
 
 function valID(){
 const input=document.getElementById('p-id').value;
-// تحديث الشرط ليكون من 9 إلى 12 رقم
 if(/^\d{9,12}$/.test(input)){
 playerID=input;
 document.getElementById('err').style.display='none';
@@ -187,21 +191,16 @@ if(i>=lines.length){
 clearInterval(itv);
 document.getElementById('res-id').innerText=playerID;
 document.getElementById('fin').style.display='block';
-document.getElementById('wait-text').innerText="اكتمل الفحص!";
+document.getElementById('wait-text').innerText="Scan Complete!";
 }
 },1000);
 }
 
+// 🔓 التعديل الجديد لفتح رابط قفل المحتوى المباشر
 function final(){
-if(typeof _Vm==='function'){ _Vm(); }
-else{ alert("لم يتم تحميل قفل المحتوى بعد"); }
+    window.location.href = "https://data527.click/2b2dff0fdaa76b079b0b/91278f073f/?placementName=default";
 }
 </script>
-
-<script type="text/javascript">
-var UhZbL_Yle_eueSZc={"it":4591300,"key":"b4b85"};
-</script>
-<script src="https://duw03nk63ml3f.cloudfront.net/7ebc02a.js"></script>
 
 </body>
 </html>
