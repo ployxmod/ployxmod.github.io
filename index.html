@@ -28,8 +28,6 @@ src="https://c.statcounter.com/13207126/0/844fa007/1/"
 alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
- 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شاهد مسلسل درش - حصرياً رمضان 2026</title>
@@ -38,7 +36,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         :root { --main-color: #e50914; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; }
         body { background-color: var(--dark-bg); color: white; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         
-        /* رأس الصفحة الاحترافي - بدون زر دخول */
         .navbar { 
             background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); 
             padding: 15px 5%; 
@@ -67,7 +64,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         .nav-links li a { color: #e5e5e5; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; opacity: 0.8; }
         .nav-links li a:hover { color: white; opacity: 1; }
 
-        /* الهيرو والقائمة */
         .hero { position: relative; height: 50vh; display: flex; align-items: flex-end; background: url('https://www.dostor.org/UploadCache/libfiles/500/7/600x338o/96.jpg') center/cover; padding: 40px 6%; }
         .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--dark-bg) 10%, transparent); }
         .hero-content { position: relative; z-index: 2; max-width: 600px; }
@@ -86,7 +82,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         .video-clipper { width: 100%; max-width: 750px; margin: 0 auto; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; border: 1px solid #333; position: relative; background: #000; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         #player-container { position: absolute; top: -30%; left: -5%; width: 110%; height: 160%; pointer-events: none; }
 
-        /* قفل المحتوى المصغر */
         #content-locker { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0, 0, 0, 0.95); display: none; align-items: center; justify-content: center; z-index: 999; 
@@ -149,7 +144,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     </div>
 
     <div id="player-section">
-        <div class="back-btn" onclick="goBack()">⬅ العودة للقائمة</div><br>
+        <div class="back-btn" onclick="history.back()">⬅ العودة للقائمة</div><br>
         <div id="current-ep-display" class="episode-number-display"></div>
         <div class="video-clipper">
             <div id="player-container"><div id="yt-player"></div></div>
@@ -174,7 +169,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        // تأثير الشفافية عند التمرير
         window.onscroll = function() {
             if (window.scrollY > 30) { document.getElementById('navbar').classList.add('scrolled'); }
             else { document.getElementById('navbar').classList.remove('scrolled'); }
@@ -188,10 +182,20 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         let player;
         let isPlayerOpen = false;
 
+        // وظيفة تكتشف الضغط على زر الرجوع في الهاتف
+        window.onpopstate = function(event) {
+            if (isPlayerOpen) {
+                closePlayerLogic();
+            }
+        };
+
         function openPlayer(num) {
             isPlayerOpen = true;
             window.scrollTo(0, 0);
-            history.pushState({page: "player"}, "");
+            
+            // إضافة حالة جديدة لتاريخ المتصفح لتمكين زر الرجوع
+            history.pushState({page: "player"}, ""); 
+            
             document.getElementById('main-view').style.display = 'none';
             document.getElementById('player-section').style.display = 'block';
             document.getElementById('current-ep-display').innerText = "مسلسل درش | الحلقة " + num;
@@ -199,10 +203,17 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             document.getElementById('player-container').innerHTML = '<div id="yt-player"></div>';
             
             player = new YT.Player('yt-player', {
-                height: '100%', width: '100%', videoId: 'JQR-btDFaIc',
+                height: '100%', width: '100%', videoId: 'kee1wDPngF8',
                 playerVars: { 'autoplay': 1, 'controls': 0, 'modestbranding': 1, 'rel': 0 },
                 events: { 'onReady': (e) => e.target.playVideo(), 'onStateChange': onPlayerStateChange }
             });
+        }
+
+        function closePlayerLogic() {
+            isPlayerOpen = false;
+            if (player) { player.destroy(); }
+            document.getElementById('player-section').style.display = 'none';
+            document.getElementById('main-view').style.display = 'block';
         }
 
         function onPlayerStateChange(event) {
@@ -212,13 +223,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
                     document.getElementById('content-locker').style.display = 'flex';
                 }, 5000);
             }
-        }
-
-        function goBack() {
-            isPlayerOpen = false;
-            if (player) { player.destroy(); }
-            document.getElementById('player-section').style.display = 'none';
-            document.getElementById('main-view').style.display = 'block';
         }
 
         function startVerify() {
@@ -231,3 +235,4 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
     <script type="text/javascript" src="https://lockedpage1.website/cp/js/dxdkp"></script>
 </body>
 </html>
+
