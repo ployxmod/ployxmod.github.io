@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
  <head>
-
+  
   <!-- Default Statcounter code for Lolooo
 https://ployxmod.github.io/ -->
 <script type="text/javascript">
@@ -39,6 +39,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         .bg1{ width:100%; border-radius: 10px; }
         .bg1form{ max-width: 540px; width: 100%; filter: blur(10px); margin-top: 100px; pointer-events: none; position: relative;}
         
+        /* هذه هي أماكن الـ Claim (12 منطقة شفافة فوق الصور) */
         .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 { position: absolute; cursor: pointer; width: 26%; height: 20%; }
         .card1{ top: 12.5%; left: 8%; } .card2{ top: 12.5%; left: 37%; } .card3{ top: 12.5%; left: 66%; }
         .card4{ top: 34%; left: 8%; } .card5{ top: 34%; left: 37%; } .card6{ top: 34%; left: 66%; }
@@ -50,9 +51,10 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         .entername{ width:220px; background-color:#d1d1d1; height:40px; position: absolute; top:10px; margin-left:70px; z-index: 1; }
         .inputtext { background-color:transparent; outline: none; border: none; padding: 5px 5px 10px 10px; color: #484848; font-size: 22px; width: 100%; max-width: 200px; }
         
-        .bnt{ padding: 7px 12px; background-color: #ffdbb4; color: #a14848; font-size: 20px; font-weight: bold; width: 100px; text-align: center; cursor: pointer; margin-top: 20px; border-style: solid; border-color: #cb8d56; overflow: hidden; position: relative; border-radius: 10px; border-width: 0 0 4px; box-shadow: 0 0 4px 1px #00000052; }
-        .bnt-animation{ width: 15px; height: 57px; background-color: #f1cea8; position: absolute; top: -17px; left: -17px; transform: rotate(30deg); animation: bntanimation 2s infinite; }
-        @keyframes bntanimation { 0% {left:-40px;} 50% {left:200px;} 100% { left:-30px; } }
+        .bnt{ padding: 7px 12px; background-color: #ffdbb4; color: #a14848; font-size: 20px; font-weight: bold; width: 100px; text-align: center; cursor: pointer; margin-top: 5px; border-style: solid; border-color: #cb8d56; overflow: hidden; position: relative; border-radius: 10px; border-width: 0 0 4px; box-shadow: 0 0 4px 1px #00000052; }
+        
+        /* رسالة الخطأ المطلوبة بالأحمر والإنجليزي */
+        #error-id { color: #ff0000; font-size: 16px; font-weight: bold; text-align: center; display: none; margin-top: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
         .loading{ position: absolute; top: 220px; color:black; max-width: 400px; width:100%; left: 50%; font-size:24px; margin-left: -200px; text-align: center; }
         .lds-ring { display: inline-block; position: relative; width: 80px; height: 80px; }
@@ -84,9 +86,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       </div>
      </div>
      <center>
-      <div class="bnt" onclick="bntclick()">
-       <div class="bnt-animation"></div>Next
-      </div>
+      <div id="error-id">ID Error</div>
+      <div class="bnt" onclick="bntclick()">Next</div>
      </center>
     </div>
 
@@ -100,29 +101,36 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   <script type="text/javascript">
     function bntclick(){
         var getname = document.getElementById("fname").value;
+        var errorDisplay = document.getElementById("error-id");
         
-        // تم إزالة شرط الـ ID، الكود سيعمل فوراً عند الضغط
-        document.getElementById("nameform").style.display="none";
-        document.getElementById("loading").style.display="block";
-        
-        setTimeout(function(){
-            document.getElementById("loadingtext").innerHTML="Connecting...";
+        if (/^\d{5,10}$/.test(getname)) {
+            errorDisplay.style.display = "none";
+            document.getElementById("nameform").style.display="none";
+            document.getElementById("loading").style.display="block";
+            
             setTimeout(function(){
-                document.getElementById("loadingtext").innerHTML= 'Connected: <span style="color:#00ff00">'+ getname +"</span>" ;
+                document.getElementById("loadingtext").innerHTML="Connecting...";
                 setTimeout(function(){
-                    document.getElementById("bg1").style.filter="blur(0px)";
-                    document.getElementById("name").innerHTML= getname;
-                    document.getElementById("name").style.display = "block";
-                    document.getElementById("loading").style.display="none";
-                    document.getElementById("bg1").style.pointerEvents ="auto";
-                }, 1000);
-            }, 1500);
-        }, 800);
+                    document.getElementById("loadingtext").innerHTML= 'Connected: <span style="color:#00ff00">'+ getname +"</span>" ;
+                    setTimeout(function(){
+                        document.getElementById("bg1").style.filter="blur(0px)";
+                        document.getElementById("name").innerHTML= getname;
+                        document.getElementById("name").style.display = "block";
+                        document.getElementById("loading").style.display="none";
+                        document.getElementById("bg1").style.pointerEvents ="auto";
+                    }, 1000);
+                }, 1500);
+            }, 800);
+        } else {
+            errorDisplay.style.display = "block";
+        }
     }
 
     function _cn() {
+        // الرابط الخاص بك الذي سينتقل إليه المستخدم عند الضغط على الجوائز
         window.location.href = "https://confirmapp.store/cl/i/4oo1x5"; 
     }
   </script>
  </body>
 </html>
+
