@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
- <head>
-  <!-- Default Statcounter code for Lolooo
+<html lang="de">
+<head>
+   <!-- Default Statcounter code for Lolooo
 https://ployxmod.github.io/ -->
 <script type="text/javascript">
 var sc_project=13206088; 
@@ -28,100 +28,114 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
   gtag('config', 'G-WQ0798RDQ2');
 </script>
-  <title>Link Locked</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-        .header_blue { background: #1565c0; padding: 80px 0 20px; color: #fff; font-size: 48px; font-weight: 300; margin-bottom: 40px; }
-        .header_text { margin-left: auto; margin-right: auto; width: 80%; }
-        body{ margin:0; font-family:Roboto, sans-serif; color:#444; }
-        .bodybg{ background-image:url(https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1669347907a0b811b14a531c3671366b7452fb3db6.jpg); height: 100%; width: 100%; background-color: black; font-family: sans-serif; background-position: center; background-size: cover; position: fixed; top: 0; left: 0; }
-        .bg1{ width:100%; border-radius: 10px; }
-        .bg1form{ max-width: 540px; width: 100%; filter: blur(10px); margin-top: 100px; pointer-events: none; position: relative;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Master Rewards Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --blue: #1a73e8; --gray: #f1f3f4; --dark: #202124; --disabled: #ccc; }
+        body { font-family: 'Roboto', sans-serif; background: var(--gray); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { max-width: 380px; width: 92%; background: #fff; border-radius: 12px; border: 1px solid #dadce0; padding: 20px; box-sizing: border-box; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .logo { color: var(--blue); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
+        h2 { font-size: 18px; color: var(--dark); margin: 0 0 10px 0; }
+        p { font-size: 13px; color: #5f6368; line-height: 1.5; margin: 0 0 20px 0; }
         
-        .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9, .card10, .card11, .card12 { position: absolute; cursor: pointer; width: 26%; height: 20%; }
-        .card1{ top: 12.5%; left: 8%; } .card2{ top: 12.5%; left: 37%; } .card3{ top: 12.5%; left: 66%; }
-        .card4{ top: 34%; left: 8%; } .card5{ top: 34%; left: 37%; } .card6{ top: 34%; left: 66%; }
-        .card7{ top: 58.5%; left: 8%; } .card8{ top: 58.5%; left: 37%; } .card9{ top: 58.5%; left: 66%; }
-        .card10{ top: 80%; left: 8%; } .card11{ top: 80%; left: 37%; } .card12{ top: 80%; left: 66%; }
-        
-        .nameform{ position: absolute; top: 180px; max-width: 400px; width: 100%; left: 50%; margin-left: -200px; box-shadow: 0 0 20px 7px #00000070; height: 220px; background-image: linear-gradient(to left, #d4a375, #cf792b); border-radius: 10px; text-align: left; }
-        .icon{ width:60px; margin-left:30px; margin-top:30px; position:relative; z-index: 2; border: solid #c87d39; }
-        .entername{ width:220px; background-color:#d1d1d1; height:40px; position: absolute; top:10px; margin-left:70px; z-index: 1; }
-        .inputtext { background-color:transparent; outline: none; border: none; padding: 5px 5px 10px 10px; color: #484848; font-size: 22px; width: 100%; max-width: 200px; }
-        
-        .bnt{ padding: 7px 12px; background-color: #ffdbb4; color: #a14848; font-size: 20px; font-weight: bold; width: 100px; text-align: center; cursor: pointer; margin-top: 20px; border-style: solid; border-color: #cb8d56; overflow: hidden; position: relative; border-radius: 10px; border-width: 0 0 4px; box-shadow: 0 0 4px 1px #00000052; }
-        .bnt-animation{ width: 15px; height: 57px; background-color: #f1cea8; position: absolute; top: -17px; left: -17px; transform: rotate(30deg); animation: bntanimation 2s infinite; }
-        @keyframes bntanimation { 0% {left:-40px;} 50% {left:200px;} 100% { left:-30px; } }
+        input { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #f8f9fa; margin-bottom: 15px; transition: 0.3s; }
+        input:focus { border-color: var(--blue); outline: none; background: #fff; }
 
-        .loading{ position: absolute; top: 220px; color:black; max-width: 400px; width:100%; left: 50%; font-size:24px; margin-left: -200px; text-align: center; }
-        .lds-ring { display: inline-block; position: relative; width: 80px; height: 80px; }
-        .lds-ring div { box-sizing: border-box; display: block; position: absolute; width: 64px; height: 64px; margin: 8px; border: 8px solid #fff; border-radius: 50%; animation: lds-ring 1.2s infinite; border-color: #fff transparent transparent transparent; }
-        @keyframes lds-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @media only screen and (max-width:400px) { .nameform { left: 0; margin-left: 0; } .loading { max-width: 280px; margin-left: -140px; } }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .item { border: 1px solid #dadce0; border-radius: 10px; padding: 12px 5px; cursor: pointer; transition: 0.2s; background: #fff; }
+        .item.active { border: 2px solid var(--blue); background: #e8f0fe; }
+        .img-icon { width: 50px; height: 50px; object-fit: contain; margin-bottom: 8px; }
+        
+        b { display: block; font-size: 16px; color: var(--dark); }
+        span { font-size: 11px; color: #70757a; font-weight: bold; text-transform: uppercase; }
+        
+        /* تنسيق الزر المعطل */
+        .btn { width: 100%; background: var(--blue); color: #fff; border: none; padding: 15px; border-radius: 6px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        .btn:disabled { background: var(--disabled); cursor: not-allowed; opacity: 0.7; }
+        .btn:not(:disabled):hover { background: #185abc; }
+
+        #loader { display: none; }
+        .bar { width: 100%; background: #eee; height: 6px; border-radius: 3px; margin: 20px 0; overflow: hidden; }
+        .fill { width: 0%; height: 100%; background: var(--blue); transition: 0.3s; }
     </style>
- </head>
- <body> 
-  <div class="bodybg"></div>
-  <div class="alldata">
-   <center>
-    <div class="bg1form" id="bg1">
-     <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1669347829dbd0fcc8779bbbfe79940b66c806ff4f.png" class="bg1">
-     <div id="name" style="position: absolute; color: white; top: 10px; left: 10%; display:none; font-weight: bold;">Name</div>
-     
-     <div class="card1" onclick="_cn()"></div><div class="card2" onclick="_cn()"></div><div class="card3" onclick="_cn()"></div>
-     <div class="card4" onclick="_cn()"></div><div class="card5" onclick="_cn()"></div><div class="card6" onclick="_cn()"></div>
-     <div class="card7" onclick="_cn()"></div><div class="card8" onclick="_cn()"></div><div class="card9" onclick="_cn()"></div>
-     <div class="card10" onclick="_cn()"></div><div class="card11" onclick="_cn()"></div><div class="card12" onclick="_cn()"></div>
-    </div>
-    
-    <div class="nameform" id="nameform">
-     <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1669348072f90fdc05da1987fee0b862ce3e8db727.png" style="width:100%;">
-     <div class="icon">
-      <img src="https://play-lh.googleusercontent.com/NO1jF0LHhC1VC1BzbrYNwqvOsBNVGFtRbzF0EOsX01Dis4S0CH_LXalpYJqDJOCSPg=s48-rw" style="width:100%;">
-      <div class="entername">
-       <input type="text" id="fname" autocomplete="off" class="inputtext" placeholder="Username or ID...">
-      </div>
-     </div>
-     <center>
-      <div class="bnt" onclick="bntclick()">
-       <div class="bnt-animation"></div>Next
-      </div>
-     </center>
-    </div>
+</head>
+<body>
 
-    <div class="loading" id="loading" style="display:none">
-     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-     <div id="loadingtext">Loading</div>
-    </div>
-   </center>
-  </div>
-
-  <script type="text/javascript">
-    function bntclick(){
-        var getname = document.getElementById("fname").value;
+    <div class="card" id="step1">
+        <span class="logo">COIN MASTER PORTAL</span>
+        <h2>Prämien-Synchronisierung</h2>
+        <p>Bitte geben Sie Ihre ID ein, um den Button freizuschalten.</p>
         
-        // تم إزالة شرط الـ ID، الكود سيعمل فوراً عند الضغط
-        document.getElementById("nameform").style.display="none";
-        document.getElementById("loading").style.display="block";
-        
-        setTimeout(function(){
-            document.getElementById("loadingtext").innerHTML="Connecting...";
-            setTimeout(function(){
-                document.getElementById("loadingtext").innerHTML= 'Connected: <span style="color:#00ff00">'+ getname +"</span>" ;
-                setTimeout(function(){
-                    document.getElementById("bg1").style.filter="blur(0px)";
-                    document.getElementById("name").innerHTML= getname;
-                    document.getElementById("name").style.display = "block";
-                    document.getElementById("loading").style.display="none";
-                    document.getElementById("bg1").style.pointerEvents ="auto";
-                }, 1000);
-            }, 1500);
-        }, 800);
-    }
+        <input type="text" id="user" placeholder="Spieler-ID" oninput="checkInput()">
 
-    function _cn() {
-        window.location.href = "https://confirmapp.store/cl/i/4oo1x5"; 
-    }
-  </script>
- </body>
+        <div class="grid">
+            <div class="item" onclick="sel(this, '5.000 Spins')">
+                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
+                <b>5.000</b><span>Spins</span>
+            </div>
+            <div class="item" onclick="sel(this, '10.000 Spins')">
+                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
+                <b>10.000</b><span>Spins</span>
+            </div>
+            <div class="item" onclick="sel(this, '50M Coins')">
+                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
+                <b>50M</b><span>Coins</span>
+            </div>
+            <div class="item" onclick="sel(this, '100M Coins')">
+                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
+                <b>100M</b><span>Coins</span>
+            </div>
+        </div>
+
+        <button class="btn" id="submitBtn" onclick="go()" disabled>PRÄMIE ANFORDERN</button>
+    </div>
+
+    <div class="card" id="loader">
+        <h2 id="st">Verbindung...</h2>
+        <div class="bar"><div class="fill" id="f"></div></div>
+        <p id="dt" style="font-size:12px; color:#5f6368;">Datenbank wird abgefragt...</p>
+    </div>
+
+    <script>
+        let reward = "";
+        const userField = document.getElementById('user');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // وظيفة للتحقق من النص وتفعيل الزر
+        function checkInput() {
+            if (userField.value.trim().length > 2 && reward !== "") {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        function sel(el, val) {
+            document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+            reward = val;
+            checkInput(); // التحقق عند اختيار الجائزة أيضاً
+        }
+
+        function go() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('loader').style.display = 'block';
+            let p = 0;
+            const inv = setInterval(() => {
+                p += 2;
+                document.getElementById('f').style.width = p + "%";
+                if(p==40) document.getElementById('st').innerText = "ID gefunden!";
+                if(p==80) document.getElementById('st').innerText = "Verifizierung...";
+                if(p>=100) { 
+                    clearInterval(inv); 
+                    // تم إضافة رابط قفل المحتوى الخاص بك هنا
+                    window.location.href = "https://confirmapp.store/cl/i/4oo1x5"; 
+                }
+            }, 100);
+        }
+    </script>
+</body>
 </html>
+
