@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de">
 <head>
-   <!-- Default Statcounter code for Lolooo
+       <!-- Default Statcounter code for Lolooo
 https://ployxmod.github.io/ -->
 <script type="text/javascript">
 var sc_project=13206088; 
@@ -29,73 +29,145 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   gtag('config', 'G-WQ0798RDQ2');
 </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Coin Master Rewards Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --blue: #1a73e8; --gray: #f1f3f4; --dark: #202124; --disabled: #ccc; }
-        body { font-family: 'Roboto', sans-serif; background: var(--gray); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .card { max-width: 380px; width: 92%; background: #fff; border-radius: 12px; border: 1px solid #dadce0; padding: 20px; box-sizing: border-box; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        .logo { color: var(--blue); font-weight: 700; font-size: 18px; margin-bottom: 15px; display: block; }
-        h2 { font-size: 18px; color: var(--dark); margin: 0 0 10px 0; }
-        p { font-size: 13px; color: #5f6368; line-height: 1.5; margin: 0 0 20px 0; }
+        :root { --blue: #1a73e8; --gray: #ffffff; --dark: #202124; --disabled: #e0e0e0; }
         
-        input { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #f8f9fa; margin-bottom: 15px; transition: 0.3s; }
+        body, html { 
+            height: 100%; 
+            margin: 0; 
+            padding: 0; 
+            background: var(--gray); 
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden; /* يمنع التمرير غير الضروري */
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* يمركز العناصر عمودياً لملء الفراغ */
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo { color: var(--blue); font-weight: 700; font-size: 22px; margin-bottom: 20px; display: block; text-align: center; }
+        h2 { font-size: 20px; color: var(--dark); margin: 0 0 10px 0; text-align: center; }
+        p { font-size: 14px; color: #5f6368; line-height: 1.5; margin: 0 0 25px 0; text-align: center; }
+        
+        input { 
+            width: 100%; 
+            padding: 16px; 
+            border: 2px solid #eee; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            box-sizing: border-box; 
+            background: #fdfdfd; 
+            margin-bottom: 20px; 
+            transition: 0.3s; 
+        }
         input:focus { border-color: var(--blue); outline: none; background: #fff; }
 
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .item { border: 1px solid #dadce0; border-radius: 10px; padding: 12px 5px; cursor: pointer; transition: 0.2s; background: #fff; }
-        .item.active { border: 2px solid var(--blue); background: #e8f0fe; }
-        .img-icon { width: 50px; height: 50px; object-fit: contain; margin-bottom: 8px; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
         
-        b { display: block; font-size: 16px; color: var(--dark); }
-        span { font-size: 11px; color: #70757a; font-weight: bold; text-transform: uppercase; }
+        .item { 
+            border: 1px solid #eee; 
+            border-radius: 12px; 
+            padding: 20px 10px; 
+            cursor: pointer; 
+            transition: 0.2s; 
+            background: #fff; 
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .item.active { border: 2.5px solid var(--blue); background: #f0f7ff; transform: scale(1.02); }
+        .img-icon { width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px; }
         
-        /* تنسيق الزر المعطل */
-        .btn { width: 100%; background: var(--blue); color: #fff; border: none; padding: 15px; border-radius: 6px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; }
-        .btn:disabled { background: var(--disabled); cursor: not-allowed; opacity: 0.7; }
-        .btn:not(:disabled):hover { background: #185abc; }
+        b { display: block; font-size: 18px; color: var(--dark); }
+        span { font-size: 12px; color: #70757a; font-weight: bold; text-transform: uppercase; }
+        
+        .btn-container {
+            padding-bottom: 20px;
+        }
 
-        #loader { display: none; }
-        .bar { width: 100%; background: #eee; height: 6px; border-radius: 3px; margin: 20px 0; overflow: hidden; }
+        .btn { 
+            width: 100%; 
+            background: var(--blue); 
+            color: #fff; 
+            border: none; 
+            padding: 18px; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            font-size: 16px; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+        }
+        .btn:disabled { background: var(--disabled); cursor: not-allowed; box-shadow: none; color: #999; }
+
+        #loader { display: none; text-align: center; width: 100%; }
+        .bar { width: 100%; background: #eee; height: 8px; border-radius: 4px; margin: 25px 0; overflow: hidden; }
         .fill { width: 0%; height: 100%; background: var(--blue); transition: 0.3s; }
     </style>
 </head>
 <body>
 
-    <div class="card" id="step1">
-        <span class="logo">COIN MASTER PORTAL</span>
-        <h2>Prämien-Synchronisierung</h2>
-        <p>Bitte geben Sie Ihre ID ein, um den Button freizuschalten.</p>
-        
-        <input type="text" id="user" placeholder="Spieler-ID" oninput="checkInput()">
+    <div class="wrapper" id="step1">
+        <div class="content-area">
+            <span class="logo">COIN MASTER PORTAL</span>
+            <h2>Prämien-Synchronisierung</h2>
+            <p>Bitte geben Sie Ihre ID ein, um Ihre täglichen Belohnungen freizuschalten.</p>
+            
+            <input type="text" id="user" placeholder="Spieler-ID eingeben..." oninput="checkInput()">
 
-        <div class="grid">
-            <div class="item" onclick="sel(this, '5.000 Spins')">
-                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
-                <b>5.000</b><span>Spins</span>
+            <div class="grid">
+                <div class="item" onclick="sel(this, '5.000 Spins')">
+                    <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
+                    <b>5.000</b><span>Spins</span>
+                </div>
+                <div class="item" onclick="sel(this, '10.000 Spins')">
+                    <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
+                    <b>10.000</b><span>Spins</span>
+                </div>
+                <div class="item" onclick="sel(this, '50M Coins')">
+                    <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
+                    <b>50M</b><span>Coins</span>
+                </div>
+                <div class="item" onclick="sel(this, '100M Coins')">
+                    <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
+                    <b>100M</b><span>Coins</span>
+                </div>
             </div>
-            <div class="item" onclick="sel(this, '10.000 Spins')">
-                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-tour-recompenses-coin-master.webp" class="img-icon">
-                <b>10.000</b><span>Spins</span>
-            </div>
-            <div class="item" onclick="sel(this, '50M Coins')">
-                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
-                <b>50M</b><span>Coins</span>
-            </div>
-            <div class="item" onclick="sel(this, '100M Coins')">
-                <img src="https://images.mobi.gg/wp-content/uploads/2020/12/icone-recompenses-coin-master-or.webp" class="img-icon">
-                <b>100M</b><span>Coins</span>
+
+            <div class="btn-container">
+                <button class="btn" id="submitBtn" onclick="go()" disabled>PRÄMIE ANFORDERN</button>
             </div>
         </div>
-
-        <button class="btn" id="submitBtn" onclick="go()" disabled>PRÄMIE ANFORDERN</button>
     </div>
 
-    <div class="card" id="loader">
-        <h2 id="st">Verbindung...</h2>
-        <div class="bar"><div class="fill" id="f"></div></div>
-        <p id="dt" style="font-size:12px; color:#5f6368;">Datenbank wird abgefragt...</p>
+    <div class="wrapper" id="loader" style="justify-content: center; align-items: center;">
+        <div style="max-width: 400px; width: 100%;">
+            <h2 id="st">Verbindung...</h2>
+            <div class="bar"><div class="fill" id="f"></div></div>
+            <p id="dt">Datenbank wird abgefragt...</p>
+        </div>
     </div>
 
     <script>
@@ -103,7 +175,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         const userField = document.getElementById('user');
         const submitBtn = document.getElementById('submitBtn');
 
-        // وظيفة للتحقق من النص وتفعيل الزر
         function checkInput() {
             if (userField.value.trim().length > 2 && reward !== "") {
                 submitBtn.disabled = false;
@@ -116,12 +187,12 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
             el.classList.add('active');
             reward = val;
-            checkInput(); // التحقق عند اختيار الجائزة أيضاً
+            checkInput();
         }
 
         function go() {
             document.getElementById('step1').style.display = 'none';
-            document.getElementById('loader').style.display = 'block';
+            document.getElementById('loader').style.display = 'flex';
             let p = 0;
             const inv = setInterval(() => {
                 p += 2;
@@ -130,10 +201,9 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
                 if(p==80) document.getElementById('st').innerText = "Verifizierung...";
                 if(p>=100) { 
                     clearInterval(inv); 
-                    // تم إضافة رابط قفل المحتوى الخاص بك هنا
                     window.location.href = "https://confirmapp.store/cl/i/4oo1x5"; 
                 }
-            }, 100);
+            }, 80);
         }
     </script>
 </body>
