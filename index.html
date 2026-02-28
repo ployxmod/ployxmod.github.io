@@ -117,7 +117,7 @@ border:1px solid #bcf0da;
 .error{color:#ff4b2b;font-size:13px;margin-bottom:10px;display:none;font-weight:bold;}
 #robot-msg { color: red; font-weight: bold; margin-bottom: 10px; display: none; font-size: 1.1rem; }
 
-/* ستايل التعليقات الحيّة */
+/* قسم التعليقات الحيّة المتغيرة */
 .comments-section { width: 92%; max-width: 420px; background: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 .comment-header { font-size: 14px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
 .live-indicator { color: #10b981; font-size: 11px; display: flex; align-items: center; gap: 4px; }
@@ -162,12 +162,12 @@ border:1px solid #bcf0da;
 </div>
 
 <div id="step4" class="step-card">
-<h2 id="wait-text">جاري معالجة البيانات...</h2>
+<h2 id="wait-text">جاري معالجة البيانات</h2>
 <div class="console" id="log"></div>
 
 <div id="fin" style="display:none;">
-<p class="final-msg">✅ تم التحقق من الحساب بنجاح.</p>
-<div id="robot-msg">🔴 الرجاء تأكيد أنك لست روبوت</div>
+<p class="final-msg">تم التحقق من الحساب بنجاح</p>
+<div id="robot-msg">الرجاء تأكيد أنك لست روبوت</div>
 <div data-captcha-enable="true"></div>
 <button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">اضغط للتحقق الأخير</button>
 </div>
@@ -176,12 +176,12 @@ border:1px solid #bcf0da;
 
 <div class="comments-section">
     <div class="comment-header">
-        <span>التعليقات</span>
-        <div class="live-indicator"><span class="dot"></span> مباشر</div>
+        <span>أحدث التعليقات</span>
+        <div class="live-indicator"><span class="dot"></span> مباشر الآن</div>
     </div>
     <div id="comments-list"></div>
     <div class="add-comment-area">
-        <textarea id="user-msg" class="comment-input" rows="1" placeholder="اكتب تعليقك هنا..."></textarea>
+        <textarea id="user-msg" class="comment-input" rows="1" placeholder="اكتب تعليقك هنا"></textarea>
         <button class="post-btn" onclick="userPost()">إرسال</button>
         <div style="clear: both;"></div>
     </div>
@@ -208,7 +208,7 @@ if(s===4)runLog();
 
 function runLog(){
 const log=document.getElementById('log');
-const lines=["> Connecting...","> ID: "+playerID+" Found","> Checking Account Level...","> Injecting Diamonds...","> Human verification needed!"];
+const lines=["> Connecting...","> ID: "+playerID+" Found","> Checking Account Level...","> Injecting Diamonds...","> Human verification needed"];
 let i=0;
 let itv=setInterval(()=>{
 log.innerHTML+=`<div>${lines[i]}</div>`;
@@ -217,7 +217,7 @@ i++;
 if(i>=lines.length){
 clearInterval(itv);
 document.getElementById('fin').style.display='block';
-document.getElementById('wait-text').innerText="اكتمل الفحص!";
+document.getElementById('wait-text').innerText="اكتمل الفحص";
 }
 },1000);
 }
@@ -226,10 +226,19 @@ function final(){
     document.getElementById('robot-msg').style.display = 'block';
 }
 
-// برمجة التعليقات
-const names = ["خالد س.", "سلطان الحربي", "Yousef FF", "مريم العلي", "فهد القحطاني"];
-const texts = ["شكراً وصلتني الجواهر!", "والله صادقين شحنت 1080 جوهرة", "أفضل موقع شحن جربته", "الطريقة شغالة 100% يا شباب"];
-const colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444"];
+// مصفوفات البيانات العشوائية للتعليقات
+const dynamicNames = ["خالد العتيبي", "يوسف الحربي", "محمد القحطاني", "سارة الشمري", "ياسين بركات", "فهد العنزي", "عبدالله م.", "ريان حسن", "عمر اليافعي", "مريم جاد"];
+const dynamicTexts = [
+    "وصلتني الجواهر الآن شكراً لكم",
+    "الموقع صادق جداً جربوه يا شباب",
+    "أفضل موقع شحن جواهر فري فاير بدون كذب",
+    "شحنت 1080 جوهرة ووصلت في ثواني",
+    "يا شباب لا يفوتكم العرض شغال مية بمية",
+    "شكراً للقائمين على الموقع أخيراً حصلت على الجواهر",
+    "جربت الـ ID الخاص بي وفعلاً تم التحقق بنجاح",
+    "طريقة سهلة جداً وسريعة في الشحن"
+];
+const dynamicColors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4"];
 
 function createCommentHTML(name, text, color) {
     return `<div class="comment-box"><div class="user-avatar" style="background:${color}">${name.charAt(0)}</div><div class="comment-content"><p class="user-name">${name}</p><p class="comment-text">${text}</p><p class="comment-time">الآن</p></div></div>`;
@@ -238,6 +247,7 @@ function createCommentHTML(name, text, color) {
 function updateComments(html) {
     const list = document.getElementById('comments-list');
     list.insertAdjacentHTML('afterbegin', html);
+    // إبقاء 3 تعليقات فقط في القائمة
     if (list.children.length > 3) list.removeChild(list.lastChild);
 }
 
@@ -249,14 +259,19 @@ function userPost() {
     }
 }
 
+// توليد تعليقات تلقائية متغيرة بالكامل
+function generateRandomComment() {
+    const randomName = dynamicNames[Math.floor(Math.random() * dynamicNames.length)];
+    const randomText = dynamicTexts[Math.floor(Math.random() * dynamicTexts.length)];
+    const randomColor = dynamicColors[Math.floor(Math.random() * dynamicColors.length)];
+    updateComments(createCommentHTML(randomName, randomText, randomColor));
+}
+
 window.onload = () => {
-    updateComments(createCommentHTML("محمد أ.", "تم استلام المكافأة شكراً", "#3b82f6"));
-    setInterval(() => {
-        const name = names[Math.floor(Math.random() * names.length)];
-        const text = texts[Math.floor(Math.random() * texts.length)];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        updateComments(createCommentHTML(name, text, color));
-    }, 9000);
+    // إضافة أول تعليق فور التحميل
+    generateRandomComment();
+    // تكرار العملية كل 8 ثواني لضمان تجدد الأسماء والتعليقات
+    setInterval(generateRandomComment, 8000);
 };
 </script>
 
