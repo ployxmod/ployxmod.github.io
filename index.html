@@ -1,66 +1,64 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
-  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redirect Page</title>
+<title>Reward Page</title>
 
 <style>
 body {
     margin: 0;
-    height: 100vh;
+    background: #f2f4f8;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f4f6f9;
-    font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
-.container {
+.card {
+    background: white;
+    width: 340px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 20px;
     text-align: center;
 }
 
-h2 {
+.card img {
+    width: 90px;
     margin-bottom: 20px;
-    color: #333;
 }
 
-button {
-    padding: 15px 35px;
-    font-size: 18px;
+.collect-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4a90e2;
     border: none;
-    border-radius: 8px;
-    background: #3498db;
     color: white;
+    font-size: 18px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
-    background: #2c80b4;
+.collect-btn:hover {
+    background: #357ac9;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>Ready to Continue?</h2>
-    <button onclick="openExternal()">Click Here to Continue</button>
+<div class="card">
+    <img src="https://coinmaster-daily.com/theme/img/freespins.png" alt="reward">
+    <button class="collect-btn" onclick="openExternal()">Belohnung anfordern</button>
 </div>
 
 <script>
 function openExternal() {
     var url = "https://cutt.ly/htEau3jE";
-    var ua = navigator.userAgent;
-
-    if (/android/i.test(ua)) {
-        window.location.href = "intent://" + url.replace(/^https?:\/\//, "") +
-        "#Intent;scheme=https;package=com.android.chrome;end;";
-    } else {
-        window.open(url, "_blank");
-    }
+    window.location.href = url;
 }
 </script>
 
